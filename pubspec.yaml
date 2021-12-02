@@ -13,7 +13,9 @@ dependencies:
     sdk: flutter
   flutter_svg: 0.23.0+1
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: 1.0.2
+  intl: 0.17.0
+  fl_chart: 0.40.2
 
 dev_dependencies:
   flutter_test:
@@ -26,3 +28,17 @@ flutter:
 
   assets: 
     - assets/icons/
+  
+  fonts:
+    - family: MyriadPro
+      fonts: 
+        - asset: assets/fonts/MyriadPro/MyriadPro-Black.ttf
+          weight: 900
+        - asset: assets/fonts/MyriadPro/MyriadPro-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/MyriadPro/MyriadPro-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/MyriadPro/MyriadPro-Regular.ttf
+          weight: 400  
+        - asset: assets/fonts/MyriadPro/MyriadPro-Light.ttf
+          weight: 300
