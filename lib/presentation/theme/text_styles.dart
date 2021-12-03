@@ -138,4 +138,34 @@ class WebDashboardTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.darkBlue,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w400,
+
+  static const TextStyle myriadProSemiBold16DarkBlue = TextStyle(
+    fontFamily: WebDashboardFonts.MyriadPro,
+    color: WebDashboardPalette.darkBlue,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.darkBlue,
+  ///
+  ///fontSize: 13,
+  ///
+  ///fontWeight: FontWeight.w400,
+
+  static const TextStyle myriadProRegular13DarkBlue = TextStyle(
+    fontFamily: WebDashboardFonts.MyriadPro,
+    color: WebDashboardPalette.darkBlue,
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+  );
 }
