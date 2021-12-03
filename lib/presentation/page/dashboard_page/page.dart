@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/information_row.dart';
-import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box.dart';
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/page.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -10,7 +10,7 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(40, 0, 40, 40),
+      padding: const EdgeInsets.fromLTRB(40, 0, 20, 40),
       child: ListView(
         children: const <Widget>[
           Padding(
@@ -22,7 +22,9 @@ class DashboardPage extends StatelessWidget {
           ),
           SizedBox(height: 28),
           InformationRow(),
-          StatisticsBox(),
+
+          ///TODO delete alignment widget
+          Align(alignment: Alignment.topLeft, child: StatisticsBox()),
         ],
       ),
     );

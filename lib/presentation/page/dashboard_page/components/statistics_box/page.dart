@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/demographics.dart';
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/interests.dart';
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/location_page.dart';
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
 
-class StatisticsBox extends StatelessWidget {
+class StatisticsBox extends StatefulWidget {
   const StatisticsBox({Key? key}) : super(key: key);
+
+  @override
+  State<StatisticsBox> createState() => _StatisticsBoxState();
+}
+
+class _StatisticsBoxState extends State<StatisticsBox> {
+  final PageController _controller = PageController(initialPage: 1);
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +33,27 @@ class StatisticsBox extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
-          Padding(
+        children: <Widget>[
+          const Padding(
             padding: EdgeInsets.only(top: 32.0, left: 32.0),
             child: Text(
               'Statistics',
               style: WebDashboardTextStyles.myriadProSemiBold22DarkBlue,
             ),
           ),
-          SizedBox(height: 26),
-          _StatisticsTabs(),
+          const SizedBox(height: 26),
+          _StatisticsTabs(pageController: _controller),
+          Expanded(
+            child: PageView(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: _controller,
+              children: const <Widget>[
+                LocationPage(),
+                DemographicsPage(),
+                InterestsPage(),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -34,7 +61,10 @@ class StatisticsBox extends StatelessWidget {
 }
 
 class _StatisticsTabs extends StatefulWidget {
-  const _StatisticsTabs({Key? key}) : super(key: key);
+  const _StatisticsTabs({required this.pageController, Key? key})
+      : super(key: key);
+
+  final PageController pageController;
 
   @override
   _StatisticsTabsState createState() => _StatisticsTabsState();
@@ -55,6 +85,7 @@ class _StatisticsTabsState extends State<_StatisticsTabs>
       initialIndex: selectedIndex,
     );
     _controller.addListener(() {
+      widget.pageController.jumpToPage(_controller.index);
       setState(() {
         selectedIndex = _controller.index;
       });
@@ -98,11 +129,8 @@ class _StatisticsTabsState extends State<_StatisticsTabs>
 }
 
 class _StatisticsTab extends StatelessWidget {
-  const _StatisticsTab({
-    required this.text,
-    required this.isSelected,
-    Key? key,
-  }) : super(key: key);
+  const _StatisticsTab({required this.text, required this.isSelected, Key? key})
+      : super(key: key);
 
   final bool isSelected;
 
