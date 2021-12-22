@@ -22,36 +22,21 @@ class _NavigationMenuState extends State<NavigationMenu> {
       children: <Widget>[
         const SizedBox(height: 120),
         _MenuItem(
-          activeIcon: SvgPicture.asset(WebDashboardIcons.homeWhite),
-          inactiveIcon: SvgPicture.asset(WebDashboardIcons.homeGrey),
+          iconPath: WebDashboardIcons.home,
           isSelected: selectedIndex == 0,
-          onTap: () {
-            setState(() {
-              selectedIndex = 0;
-            });
-          },
+          onTap: () => setState(() => selectedIndex = 0),
           text: 'Dashboard',
         ),
         _MenuItem(
-          activeIcon: SvgPicture.asset(WebDashboardIcons.stackWhite),
-          inactiveIcon: SvgPicture.asset(WebDashboardIcons.stackGrey),
+          iconPath: WebDashboardIcons.stack,
           isSelected: selectedIndex == 1,
-          onTap: () {
-            setState(() {
-              selectedIndex = 1;
-            });
-          },
+          onTap: () => setState(() => selectedIndex = 1),
           text: 'Content Management',
         ),
         _MenuItem(
-          activeIcon: SvgPicture.asset(WebDashboardIcons.cupWhite),
-          inactiveIcon: SvgPicture.asset(WebDashboardIcons.cupGrey),
+          iconPath: WebDashboardIcons.cup,
           isSelected: selectedIndex == 2,
-          onTap: () {
-            setState(() {
-              selectedIndex = 2;
-            });
-          },
+          onTap: () => setState(() => selectedIndex = 2),
           text: 'User Loyalty & Rewards',
         ),
       ],
@@ -61,16 +46,14 @@ class _NavigationMenuState extends State<NavigationMenu> {
 
 class _MenuItem extends StatelessWidget {
   const _MenuItem({
-    required this.activeIcon,
-    required this.inactiveIcon,
+    required this.iconPath,
     required this.text,
     required this.isSelected,
     required this.onTap,
     Key? key,
   }) : super(key: key);
 
-  final Widget inactiveIcon;
-  final Widget activeIcon;
+  final String iconPath;
 
   final String text;
 
@@ -100,7 +83,12 @@ class _MenuItem extends StatelessWidget {
             padding: const EdgeInsets.only(left: 43.0),
             child: Row(
               children: <Widget>[
-                if (isSelected) activeIcon else inactiveIcon,
+                SvgPicture.asset(
+                  iconPath,
+                  width: 16,
+                  height: 16,
+                  color: isSelected ? WebDashboardPalette.dirtyWhite : null,
+                ),
                 const SizedBox(width: 8),
                 Text(
                   text,
