@@ -1,6 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
+import 'package:flutter_web_dashboard/dummy_data/age_chart_data.dart';
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
 
@@ -174,242 +176,80 @@ class _CircleChartBottomInfo extends StatelessWidget {
 class _BarChart extends StatelessWidget {
   const _BarChart({Key? key}) : super(key: key);
 
-  final Color dark = const Color(0xff3b8c75);
-  final Color normal = const Color(0xff64caad);
-  final Color light = const Color(0xff73e8c9);
-
-  @override
-  Widget build(BuildContext context) {
-    return RotatedBox(
-      quarterTurns: 1,
-      child: Container(
-        color: Colors.red,
-        width: 200,
-        height: 400,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 16.0),
-          child: BarChart(
-            BarChartData(
-              alignment: BarChartAlignment.spaceBetween,
-              barTouchData: BarTouchData(
-                enabled: false,
-              ),
-              titlesData: FlTitlesData(
-                show: true,
-                bottomTitles: SideTitles(
-                  textDirection: TextDirection.ltr,
-                  rotateAngle: 270,
-                  showTitles: true,
-                  getTextStyles: (context, value) =>
-                      const TextStyle(color: Color(0xff939393), fontSize: 10),
-                  margin: 10,
-                  getTitles: (double value) {
-                    switch (value.toInt()) {
-                      case 0:
-                        return '18 - 24';
-                      case 1:
-                        return '25 - 34';
-                      case 2:
-                        return '35 - 44';
-                      case 3:
-                        return '44 - 56';
-                      case 4:
-                        return '56+';
-                      default:
-                        return '';
-                    }
-                  },
-                ),
-                rightTitles: SideTitles(
-                  getTitles: (double value) {
-                    print(value);
-                    switch (value.toInt()) {
-                      case 0:
-                        return '0%';
-                      case 5:
-                        return '5%';
-                      case 10:
-                        return '10%';
-                      case 15:
-                        return '15%';
-                      default:
-                        return '';
-                    }
-                  },
-                  rotateAngle: 270,
-                  showTitles: true,
-                  reservedSize: 40,
-                  getTextStyles: (context, value) => const TextStyle(
-                    color: Color(0xff939393),
-                    fontSize: 10,
-                  ),
-                  margin: 0,
-                ),
-                topTitles: SideTitles(showTitles: false),
-                leftTitles: SideTitles(showTitles: false),
-              ),
-              gridData: FlGridData(
-                show: true,
-                checkToShowVerticalLine: (value) => true,
-                getDrawingHorizontalLine: (value) => FlLine(
-                  color: const Color(0xffe7e8ec),
-                  strokeWidth: 1,
-                ),
-              ),
-              borderData: FlBorderData(
-                show: false,
-              ),
-              groupsSpace: 4,
-              barGroups: getData(),
-            ),
-          ),
-        ),
+  BarSeries<UsersAgeData, String> _createBarSeries(
+    List<UsersAgeData> dataSource,
+  ) {
+    return BarSeries<UsersAgeData, String>(
+      spacing: 0.25,
+      width: 0.9,
+      trackBorderWidth: 0,
+      borderRadius: const BorderRadius.only(
+        topRight: Radius.circular(4),
+        bottomRight: Radius.circular(4),
       ),
+      enableTooltip: false,
+      dataSource: dataSource,
+      xValueMapper: (UsersAgeData data, _) => data.age,
+      yValueMapper: (UsersAgeData data, _) => data.percent,
     );
   }
 
-  List<BarChartGroupData> getData() {
-    return [
-      BarChartGroupData(
-        x: 0,
-        barsSpace: 4,
-        barRods: [
-          BarChartRodData(
-            width: 13,
-            y: 9,
-            rodStackItems: [
-              BarChartRodStackItem(0, 9, Colors.blue),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 63),
+      child: SfCartesianChart(
+        margin: EdgeInsets.zero,
+        axisLabelFormatter: (AxisLabelRenderDetails details) {
+          if (details.axis is NumericAxis) {
+            return ChartAxisLabel(
+              '${details.text}%',
+              WebDashboardTextStyles.myriadProRegular13DarkBlue.copyWith(
+                fontSize: 12.8,
+              ),
+            );
+          }
+          return ChartAxisLabel(
+            details.text,
+            WebDashboardTextStyles.myriadProRegular13DarkBlue.copyWith(
+              color: WebDashboardPalette.darkBlue.withOpacity(0.6),
+              fontSize: 12.8,
             ),
+          );
+        },
+        plotAreaBorderWidth: 0,
+        title: ChartTitle(
+          text: 'Age',
+          textStyle: WebDashboardTextStyles.myriadProSemiBold14DarkBlue,
+          alignment: ChartAlignment.near,
+        ),
+        primaryXAxis: CategoryAxis(
+          axisLine: const AxisLine(width: 0),
+          majorTickLines: const MajorTickLines(size: 0),
+          majorGridLines: const MajorGridLines(width: 0),
+          isVisible: true,
+        ),
+        primaryYAxis: NumericAxis(
+          axisLine: const AxisLine(width: 0),
+          majorTickLines: const MajorTickLines(size: 0, width: 0),
+          majorGridLines: const MajorGridLines(
+            width: 0.5,
+            color: WebDashboardPalette.lightGrey,
           ),
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 32000000000, Colors.orange),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
+          minorTickLines: const MinorTickLines(size: 0, width: 0),
+          minorGridLines: const MinorGridLines(width: 0),
+          maximum: 15,
+        ),
+        palette: const <Color>[
+          WebDashboardPalette.orange,
+          WebDashboardPalette.lightBlue,
         ],
-      ),
-      BarChartGroupData(
-        x: 1,
-        barsSpace: 4,
-        barRods: [
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 29000000000, Colors.blue),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 32000000000, Colors.orange),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
+        series: <ChartSeries>[
+          _createBarSeries(femaleData),
+          _createBarSeries(maleData),
         ],
+        tooltipBehavior: TooltipBehavior(enable: true),
       ),
-      BarChartGroupData(
-        x: 2,
-        barsSpace: 4,
-        barRods: [
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 29000000000, Colors.blue),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 32000000000, Colors.orange),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
-        ],
-      ),
-      BarChartGroupData(
-        x: 3,
-        barsSpace: 4,
-        barRods: [
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 29000000000, Colors.blue),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 32000000000, Colors.orange),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
-        ],
-      ),
-      BarChartGroupData(
-        x: 4,
-        barsSpace: 4,
-        barRods: [
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 29000000000, Colors.blue),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
-          BarChartRodData(
-            width: 13,
-            y: 15,
-            rodStackItems: [
-              BarChartRodStackItem(0, 32000000000, Colors.orange),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(4),
-            ),
-          ),
-        ],
-      ),
-    ];
+    );
   }
 }

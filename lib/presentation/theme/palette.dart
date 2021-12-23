@@ -4,9 +4,6 @@ class WebDashboardPalette {
   ///0xFFF8F9F9
   static const Color dirtyWhite = Color(0xFFF8F9F9);
 
-  ///0xFFF8F9F9
-  static const Color background = Color(0xFFF8F9F9);
-
   ///0xFF5363F6
   static const Color blue = Color(0xFF5363F6);
 

@@ -48,7 +48,7 @@ class _BellIcon extends StatelessWidget {
             decoration: BoxDecoration(
               color: WebDashboardPalette.blue,
               shape: BoxShape.circle,
-              border: Border.all(color: WebDashboardPalette.background),
+              border: Border.all(color: WebDashboardPalette.dirtyWhite),
             ),
           ),
       ],

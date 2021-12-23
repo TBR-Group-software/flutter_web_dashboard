@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_dashboard/presentation/page/dashboard_page/page.dart';
 
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/page.dart';
 import 'package:flutter_web_dashboard/presentation/page/main_screen/components/appbar.dart';
 import 'package:flutter_web_dashboard/presentation/page/main_screen/components/navigation_menu.dart';
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
@@ -21,11 +21,10 @@ class MainScreen extends StatelessWidget {
                 color: WebDashboardPalette.darkBlue,
                 child: const NavigationMenu(),
               ),
-              Expanded(
-                child: Container(
-                  alignment: Alignment.topLeft,
-                  color: WebDashboardPalette.background,
-                  child: const DashboardPage(),
+              const Expanded(
+                child: ColoredBox(
+                  color: WebDashboardPalette.dirtyWhite,
+                  child: DashboardPage(),
                 ),
               ),
             ],
