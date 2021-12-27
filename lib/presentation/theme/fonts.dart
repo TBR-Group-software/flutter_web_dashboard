@@ -1,3 +1,3 @@
-class WebDashboardFonts {
-  static const String MyriadPro = 'MyriadPro';
+class Fonts {
+  static const String myriadPro = 'MyriadPro';
 }

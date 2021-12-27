@@ -22,19 +22,19 @@ class _NavigationMenuState extends State<NavigationMenu> {
       children: <Widget>[
         const SizedBox(height: 120),
         _MenuItem(
-          iconPath: WebDashboardIcons.home,
+          iconPath: SvgIcons.home,
           isSelected: selectedIndex == 0,
           onTap: () => setState(() => selectedIndex = 0),
           text: 'Dashboard',
         ),
         _MenuItem(
-          iconPath: WebDashboardIcons.stack,
+          iconPath: SvgIcons.stack,
           isSelected: selectedIndex == 1,
           onTap: () => setState(() => selectedIndex = 1),
           text: 'Content Management',
         ),
         _MenuItem(
-          iconPath: WebDashboardIcons.cup,
+          iconPath: SvgIcons.cup,
           isSelected: selectedIndex == 2,
           onTap: () => setState(() => selectedIndex = 2),
           text: 'User Loyalty & Rewards',
@@ -72,7 +72,7 @@ class _MenuItem extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 25),
           decoration: isSelected
               ? const BoxDecoration(
-                  color: WebDashboardPalette.lightBlue,
+                  color: Palette.lightBlue,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(8),
                     bottomRight: Radius.circular(8),
@@ -87,17 +87,17 @@ class _MenuItem extends StatelessWidget {
                   iconPath,
                   width: 16,
                   height: 16,
-                  color: isSelected ? WebDashboardPalette.dirtyWhite : null,
+                  color: isSelected ? Palette.dirtyWhite : null,
                 ),
                 const SizedBox(width: 8),
                 Text(
                   text,
                   style: isSelected
-                      ? WebDashboardTextStyles.myriadProSemiBold12DirtyWhite
-                      : WebDashboardTextStyles.myriadProSemiBold12DirtyWhite
+                      ? TextStyles.myriadProSemiBold12DirtyWhite
+                      : TextStyles.myriadProSemiBold12DirtyWhite
                           .copyWith(
                           color:
-                              WebDashboardPalette.dirtyWhite.withOpacity(0.8),
+                              Palette.dirtyWhite.withOpacity(0.8),
                         ),
                 ),
               ],

@@ -61,26 +61,26 @@ class InformationBox extends StatelessWidget {
             children: <Widget>[
               Text(
                 showPercent ? number.toString() + '%' : _formatNumber(number),
-                style: WebDashboardTextStyles.myriadProSemiBold24Dark,
+                style: TextStyles.myriadProSemiBold24Dark,
               ),
               const SizedBox(width: 5),
               Icon(
                 haveIncreased ? Icons.arrow_drop_up : Icons.arrow_drop_down,
                 size: 20,
                 color: haveIncreased
-                    ? WebDashboardPalette.green
-                    : WebDashboardPalette.red,
+                    ? Palette.green
+                    : Palette.red,
               ),
               Text(
                 percent.toString() + '%',
                 style: haveIncreased
-                    ? WebDashboardTextStyles.myriadProSemiBold12Green
-                    : WebDashboardTextStyles.myriadProSemiBold12Red,
+                    ? TextStyles.myriadProSemiBold12Green
+                    : TextStyles.myriadProSemiBold12Red,
               ),
             ],
           ),
           const SizedBox(height: 7),
-          Text(text, style: WebDashboardTextStyles.myriadProRegular16DarkGrey),
+          Text(text, style: TextStyles.myriadProRegular16DarkGrey),
         ],
       ),
     );

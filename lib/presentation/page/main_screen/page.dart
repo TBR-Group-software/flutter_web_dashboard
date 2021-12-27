@@ -18,13 +18,13 @@ class MainScreen extends StatelessWidget {
               Container(
                 width: 220,
                 height: double.infinity,
-                color: WebDashboardPalette.darkBlue,
+                color: Palette.darkBlue,
                 child: const NavigationMenu(),
               ),
               Expanded(
                 child: Container(
                   alignment: Alignment.topLeft,
-                  color: WebDashboardPalette.background,
+                  color: Palette.background,
                   child: const DashboardPage(),
                 ),
               ),
@@ -38,7 +38,7 @@ class MainScreen extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Divider(
-                color: WebDashboardPalette.lightGrey,
+                color: Palette.lightGrey,
                 indent: 0.5,
                 thickness: 0.2,
               ),

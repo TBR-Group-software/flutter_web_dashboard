@@ -17,7 +17,7 @@ class DashboardPage extends StatelessWidget {
             padding: EdgeInsets.only(top: 120.0),
             child: Text(
               'Welcome back!',
-              style: WebDashboardTextStyles.myriadProSemiBold32DarkBlue,
+              style: TextStyles.myriadProSemiBold32DarkBlue,
             ),
           ),
           SizedBox(height: 28),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/presentation/theme/fonts.dart';
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
 
-class WebDashboardTextStyles {
+class TextStyles {
   ///fontFamily: WebDashboardFonts.MyriadPro,
   ///
   ///color: WebDashboardPalette.dirtyWhite,
@@ -13,8 +13,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold12DirtyWhite = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.dirtyWhite,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.dirtyWhite,
     fontSize: 12,
     fontWeight: FontWeight.w600,
   );
@@ -28,8 +28,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold32DarkBlue = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.darkBlue,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue,
     fontSize: 32,
     fontWeight: FontWeight.w600,
   );
@@ -43,8 +43,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold22DarkBlue = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.darkBlue,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue,
     fontSize: 22,
     fontWeight: FontWeight.w600,
   );
@@ -58,8 +58,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold24Dark = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.dark,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.dark,
     fontSize: 24,
     fontWeight: FontWeight.w600,
   );
@@ -73,8 +73,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold12Green = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.green,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.green,
     fontSize: 12,
     fontWeight: FontWeight.w600,
   );
@@ -88,8 +88,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold12Red = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.red,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.red,
     fontSize: 12,
     fontWeight: FontWeight.w600,
   );
@@ -103,8 +103,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold14LightBlue = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.lightBlue,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.lightBlue,
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
@@ -118,8 +118,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold14DarkBlue = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.darkBlue,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue,
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
@@ -133,8 +133,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w400,
 
   static const TextStyle myriadProRegular16DarkGrey = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.darkGrey,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkGrey,
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
@@ -148,8 +148,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w400,
 
   static const TextStyle myriadProSemiBold16DarkBlue = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.darkBlue,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue,
     fontSize: 16,
     fontWeight: FontWeight.w600,
   );
@@ -163,8 +163,8 @@ class WebDashboardTextStyles {
   ///fontWeight: FontWeight.w400,
 
   static const TextStyle myriadProRegular13DarkBlue = TextStyle(
-    fontFamily: WebDashboardFonts.MyriadPro,
-    color: WebDashboardPalette.darkBlue,
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue,
     fontSize: 13,
     fontWeight: FontWeight.w400,
   );
