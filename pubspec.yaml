@@ -16,12 +16,15 @@ dependencies:
   intl: ^0.17.0
   fl_chart: ^0.40.6
   syncfusion_flutter_charts: ^19.4.38
+  auto_route: ^3.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^1.0.0
+  auto_route_generator: ^3.2.0    
+  build_runner: ^2.1.7
 
 flutter:
   uses-material-design: true
