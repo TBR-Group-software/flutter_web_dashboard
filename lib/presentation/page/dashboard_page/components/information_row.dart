@@ -22,7 +22,7 @@ class InformationRow extends StatelessWidget {
         ),
         InformationBox(
           icon: SvgPicture.asset(WebDashboardIcons.chartPurple),
-          backgroundColor: WebDashboardPalette.purple.withOpacity(0.8),
+          backgroundColor: WebDashboardPalette.lightPurple.withOpacity(0.8),
           number: 22424,
           haveIncreased: true,
           percent: 3.9,

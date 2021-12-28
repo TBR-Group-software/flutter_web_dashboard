@@ -160,12 +160,42 @@ class WebDashboardTextStyles {
   ///
   ///fontSize: 16,
   ///
-  ///fontWeight: FontWeight.w400,
+  ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold16DarkBlue = TextStyle(
     fontFamily: WebDashboardFonts.MyriadPro,
     color: WebDashboardPalette.darkBlue,
     fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: Colors.white,
+  ///
+  ///fontSize: 24,
+  ///
+  ///fontWeight: FontWeight.w600,
+
+  static const TextStyle myriadProSemiBold24White = TextStyle(
+    fontFamily: WebDashboardFonts.MyriadPro,
+    color: Colors.white,
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: Colors.white,
+  ///
+  ///fontSize: 22,
+  ///
+  ///fontWeight: FontWeight.w600,
+
+  static const TextStyle myriadProSemiBold22White = TextStyle(
+    fontFamily: WebDashboardFonts.MyriadPro,
+    color: Colors.white,
+    fontSize: 22,
     fontWeight: FontWeight.w600,
   );
 }

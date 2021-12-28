@@ -19,8 +19,11 @@ class WebDashboardPalette {
   ///0xFF191C24
   static const Color dark = Color(0xFF191C24);
 
+  ///0xFF974DF4
+  static const Color purple = Color(0xFF974DF4);
+
   ///0xFFEEE8F8
-  static const Color purple = Color(0xFFEEE8F8);
+  static const Color lightPurple = Color(0xFFEEE8F8);
 
   ///0xFFFF7537
   static const Color orange = Color(0xFFFF7537);
