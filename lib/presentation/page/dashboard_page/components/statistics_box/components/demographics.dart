@@ -198,23 +198,6 @@ class _BarChart extends StatelessWidget {
       padding: const EdgeInsets.only(left: 63),
       child: SfCartesianChart(
         margin: EdgeInsets.zero,
-        axisLabelFormatter: (AxisLabelRenderDetails details) {
-          if (details.axis is NumericAxis) {
-            return ChartAxisLabel(
-              '${details.text}%',
-              TextStyles.myriadProRegular13DarkBlue.copyWith(
-                fontSize: 12.8,
-              ),
-            );
-          }
-          return ChartAxisLabel(
-            details.text,
-            TextStyles.myriadProRegular13DarkBlue.copyWith(
-              color: Palette.darkBlue.withOpacity(0.6),
-              fontSize: 12.8,
-            ),
-          );
-        },
         plotAreaBorderWidth: 0,
         title: ChartTitle(
           text: 'Age',
@@ -222,12 +205,29 @@ class _BarChart extends StatelessWidget {
           alignment: ChartAlignment.near,
         ),
         primaryXAxis: CategoryAxis(
+          axisLabelFormatter: (AxisLabelRenderDetails details) {
+            return ChartAxisLabel(
+              details.text,
+              TextStyles.myriadProRegular13DarkBlue.copyWith(
+                color: Palette.darkBlue.withOpacity(0.6),
+                fontSize: 12.8,
+              ),
+            );
+          },
           axisLine: const AxisLine(width: 0),
           majorTickLines: const MajorTickLines(size: 0),
           majorGridLines: const MajorGridLines(width: 0),
           isVisible: true,
         ),
         primaryYAxis: NumericAxis(
+          axisLabelFormatter: (AxisLabelRenderDetails details) {
+            return ChartAxisLabel(
+              '${details.text}%',
+              TextStyles.myriadProRegular13DarkBlue.copyWith(
+                fontSize: 12.8,
+              ),
+            );
+          },
           axisLine: const AxisLine(width: 0),
           majorTickLines: const MajorTickLines(size: 0, width: 0),
           majorGridLines: const MajorGridLines(
