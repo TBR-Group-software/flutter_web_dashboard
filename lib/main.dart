@@ -1,21 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_web_dashboard/presentation/page/main_screen/page.dart';
+import 'package:flutter_web_dashboard/presentation/core/web_dashboard_app.dart';
 
 void main() {
-  runApp(const WebDashboardApp());
-}
-
-class WebDashboardApp extends StatelessWidget {
-  const WebDashboardApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MainScreen(),
-    );
-  }
+  runApp(WebDashboardApp());
 }

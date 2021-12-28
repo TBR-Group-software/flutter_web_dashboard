@@ -38,7 +38,7 @@ class _StatisticsBoxState extends State<StatisticsBox> {
             padding: EdgeInsets.only(top: 32.0, left: 32.0),
             child: Text(
               'Statistics',
-              style: WebDashboardTextStyles.myriadProSemiBold22DarkBlue,
+              style: TextStyles.myriadProSemiBold22DarkBlue,
             ),
           ),
           const SizedBox(height: 26),
@@ -106,7 +106,7 @@ class _StatisticsTabsState extends State<_StatisticsTabs>
         children: [
           const Align(
             alignment: Alignment.bottomCenter,
-            child: Divider(color: WebDashboardPalette.lightGrey),
+            child: Divider(color: Palette.lightGrey),
           ),
           TabBar(
             padding: const EdgeInsets.only(left: 20),
@@ -143,9 +143,9 @@ class _StatisticsTab extends StatelessWidget {
       child: Text(
         text,
         style: isSelected
-            ? WebDashboardTextStyles.myriadProSemiBold14LightBlue
-            : WebDashboardTextStyles.myriadProSemiBold14DarkBlue.copyWith(
-                color: WebDashboardPalette.darkBlue.withOpacity(0.4),
+            ? TextStyles.myriadProSemiBold14LightBlue
+            : TextStyles.myriadProSemiBold14DarkBlue.copyWith(
+                color: Palette.darkBlue.withOpacity(0.4),
               ),
       ),
     );

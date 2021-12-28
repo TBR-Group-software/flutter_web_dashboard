@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_web_dashboard/presentation/routes/app_router.dart';
 
 import 'package:flutter_web_dashboard/presentation/theme/icons.dart';
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
@@ -13,44 +15,54 @@ class NavigationMenu extends StatefulWidget {
 }
 
 class _NavigationMenuState extends State<NavigationMenu> {
-  int selectedIndex = 0;
+  bool _isListenerAdded = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_isListenerAdded) {
+      AutoRouterDelegate.of(context).addListener(() {
+        if (mounted) setState(() {});
+      });
+      _isListenerAdded = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    String currentUrl = AutoRouterDelegate.of(context).urlState.path;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const SizedBox(height: 120),
         _MenuItem(
-          activeIcon: SvgPicture.asset(WebDashboardIcons.homeWhite),
-          inactiveIcon: SvgPicture.asset(WebDashboardIcons.homeGrey),
-          isSelected: selectedIndex == 0,
+          iconPath: SvgIcons.home,
+          isSelected: currentUrl == '/${const DashboardRoute().path}',
           onTap: () {
-            setState(() {
-              selectedIndex = 0;
-            });
+            context.navigateTo(
+              const MainRoute(children: [DashboardRoute()]),
+            );
           },
           text: 'Dashboard',
         ),
         _MenuItem(
-          activeIcon: SvgPicture.asset(WebDashboardIcons.stackWhite),
-          inactiveIcon: SvgPicture.asset(WebDashboardIcons.stackGrey),
-          isSelected: selectedIndex == 1,
+          iconPath: SvgIcons.stack,
+          isSelected: currentUrl == '/${const ContentManagementRoute().path}',
           onTap: () {
-            setState(() {
-              selectedIndex = 1;
-            });
+            context.navigateTo(
+              const MainRoute(children: [ContentManagementRoute()]),
+            );
           },
           text: 'Content Management',
         ),
         _MenuItem(
-          activeIcon: SvgPicture.asset(WebDashboardIcons.cupWhite),
-          inactiveIcon: SvgPicture.asset(WebDashboardIcons.cupGrey),
-          isSelected: selectedIndex == 2,
+          iconPath: SvgIcons.cup,
+          isSelected:
+              currentUrl == '/${const UserLoyaltyAndRewardsRoute().path}',
           onTap: () {
-            setState(() {
-              selectedIndex = 2;
-            });
+            context.navigateTo(
+              const MainRoute(children: [UserLoyaltyAndRewardsRoute()]),
+            );
           },
           text: 'User Loyalty & Rewards',
         ),
@@ -61,16 +73,14 @@ class _NavigationMenuState extends State<NavigationMenu> {
 
 class _MenuItem extends StatelessWidget {
   const _MenuItem({
-    required this.activeIcon,
-    required this.inactiveIcon,
+    required this.iconPath,
     required this.text,
     required this.isSelected,
     required this.onTap,
     Key? key,
   }) : super(key: key);
 
-  final Widget inactiveIcon;
-  final Widget activeIcon;
+  final String iconPath;
 
   final String text;
 
@@ -89,7 +99,7 @@ class _MenuItem extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 25),
           decoration: isSelected
               ? const BoxDecoration(
-                  color: WebDashboardPalette.lightBlue,
+                  color: Palette.lightBlue,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(8),
                     bottomRight: Radius.circular(8),
@@ -100,16 +110,19 @@ class _MenuItem extends StatelessWidget {
             padding: const EdgeInsets.only(left: 43.0),
             child: Row(
               children: <Widget>[
-                if (isSelected) activeIcon else inactiveIcon,
+                SvgPicture.asset(
+                  iconPath,
+                  width: 16,
+                  height: 16,
+                  color: isSelected ? Palette.dirtyWhite : null,
+                ),
                 const SizedBox(width: 8),
                 Text(
                   text,
                   style: isSelected
-                      ? WebDashboardTextStyles.myriadProSemiBold12DirtyWhite
-                      : WebDashboardTextStyles.myriadProSemiBold12DirtyWhite
-                          .copyWith(
-                          color:
-                              WebDashboardPalette.dirtyWhite.withOpacity(0.8),
+                      ? TextStyles.myriadProSemiBold12DirtyWhite
+                      : TextStyles.myriadProSemiBold12DirtyWhite.copyWith(
+                          color: Palette.dirtyWhite.withOpacity(0.8),
                         ),
                 ),
               ],

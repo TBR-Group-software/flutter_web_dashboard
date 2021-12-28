@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,7 @@ class DemographicsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const <Widget>[
           _CircleChart(femalePercent: 43.9, malePercent: 56.1),
-          VerticalDivider(color: WebDashboardPalette.lightGrey),
+          VerticalDivider(color: Palette.lightGrey),
           _BarChart(),
         ],
       ),
@@ -39,13 +41,13 @@ class _CircleChart extends StatelessWidget {
   ) {
     return [
       PieChartSectionData(
-        color: WebDashboardPalette.lightBlue,
+        color: Palette.lightBlue,
         value: malePercent,
         radius: 20,
         title: '',
       ),
       PieChartSectionData(
-        color: WebDashboardPalette.orange,
+        color: Palette.orange,
         value: femalePercent,
         radius: 20,
         title: '',
@@ -79,7 +81,7 @@ class _CircleChart extends StatelessWidget {
                 ),
                 const Text(
                   'Gender',
-                  style: WebDashboardTextStyles.myriadProSemiBold16DarkBlue,
+                  style: TextStyles.myriadProSemiBold16DarkBlue,
                 ),
               ],
             ),
@@ -90,14 +92,14 @@ class _CircleChart extends StatelessWidget {
             children: <Widget>[
               _CircleChartBottomInfo(
                 text: 'Male',
-                color: WebDashboardPalette.lightBlue,
+                color: Palette.lightBlue,
                 totalPercent: malePercent,
                 growthPercent: 3.9,
               ),
               const SizedBox(width: 50),
               _CircleChartBottomInfo(
                 text: 'Female',
-                color: WebDashboardPalette.orange,
+                color: Palette.orange,
                 totalPercent: femalePercent,
                 growthPercent: 38.9,
                 haveIncreased: false,
@@ -140,7 +142,7 @@ class _CircleChartBottomInfo extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               text,
-              style: WebDashboardTextStyles.myriadProRegular13DarkBlue,
+              style: TextStyles.myriadProRegular13DarkBlue,
             ),
           ],
         ),
@@ -149,20 +151,20 @@ class _CircleChartBottomInfo extends StatelessWidget {
             const SizedBox(width: 20),
             Text(
               totalPercent.toString() + '%',
-              style: WebDashboardTextStyles.myriadProSemiBold16DarkBlue,
+              style: TextStyles.myriadProSemiBold16DarkBlue,
             ),
             Icon(
               haveIncreased ? Icons.arrow_drop_up : Icons.arrow_drop_down,
               size: 20,
               color: haveIncreased
-                  ? WebDashboardPalette.green
-                  : WebDashboardPalette.red,
+                  ? Palette.green
+                  : Palette.red,
             ),
             Text(
               growthPercent.toString() + '%',
               style: haveIncreased
-                  ? WebDashboardTextStyles.myriadProSemiBold12Green
-                  : WebDashboardTextStyles.myriadProSemiBold12Red,
+                  ? TextStyles.myriadProSemiBold12Green
+                  : TextStyles.myriadProSemiBold12Red,
             ),
           ],
         ),
@@ -222,7 +224,7 @@ class _BarChart extends StatelessWidget {
                 ),
                 rightTitles: SideTitles(
                   getTitles: (double value) {
-                    print(value);
+                    log('$value');
                     switch (value.toInt()) {
                       case 0:
                         return '0%';
