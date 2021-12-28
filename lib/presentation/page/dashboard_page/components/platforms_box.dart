@@ -48,7 +48,7 @@ class _ScatterChartSample1State extends State {
                 backgroundColor: Colors.green,
                 child: Text(
                   '30',
-                  style: WebDashboardTextStyles.myriadProSemiBold22White,
+                  style: TextStyles.myriadProSemiBold22White,
                 ),
               ),
             ),
@@ -60,7 +60,7 @@ class _ScatterChartSample1State extends State {
                 backgroundColor: Colors.blue,
                 child: Text(
                   '10',
-                  style: WebDashboardTextStyles.myriadProSemiBold22White,
+                  style: TextStyles.myriadProSemiBold22White,
                 ),
               ),
             ),
@@ -71,7 +71,7 @@ class _ScatterChartSample1State extends State {
                 backgroundColor: Colors.red,
                 child: Text(
                   '60',
-                  style: WebDashboardTextStyles.myriadProSemiBold24White,
+                  style: TextStyles.myriadProSemiBold24White,
                 ),
               ),
             ),

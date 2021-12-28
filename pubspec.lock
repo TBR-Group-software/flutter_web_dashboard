@@ -43,13 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.2"
   equatable:
     dependency: transitive
     description:
@@ -70,7 +63,7 @@ packages:
       name: fl_chart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.40.2"
+    version: "0.40.6"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -89,7 +82,7 @@ packages:
       name: flutter_svg
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.23.0+1"
+    version: "1.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -136,14 +129,14 @@ packages:
       name: path_drawing
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.1+1"
+    version: "1.0.0"
   path_parsing:
     dependency: transitive
     description:
       name: path_parsing
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.1"
+    version: "1.0.0"
   petitparser:
     dependency: transitive
     description:
@@ -190,14 +183,14 @@ packages:
       name: syncfusion_flutter_charts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "19.3.56"
+    version: "19.4.38"
   syncfusion_flutter_core:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "19.3.56"
+    version: "19.4.38"
   term_glyph:
     dependency: transitive
     description:
@@ -234,5 +227,5 @@ packages:
     source: hosted
     version: "5.3.1"
 sdks:
-  dart: ">=2.14.0 <3.0.0"
+  dart: ">=2.15.0 <3.0.0"
   flutter: ">=1.24.0-7.0"

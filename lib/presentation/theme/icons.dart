@@ -1,4 +1,4 @@
-class WebDashboardIcons {
+class SvgIcons {
   static const String bell = 'assets/icons/bell.svg';
 
   static const String cup = 'assets/icons/cup.svg';

@@ -17,7 +17,7 @@ class DemographicsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const <Widget>[
           _CircleChart(femalePercent: 43.9, malePercent: 56.1),
-          VerticalDivider(color: WebDashboardPalette.lightGrey),
+          VerticalDivider(color: Palette.lightGrey),
           _BarChart(),
         ],
       ),
@@ -41,13 +41,13 @@ class _CircleChart extends StatelessWidget {
   ) {
     return [
       PieChartSectionData(
-        color: WebDashboardPalette.lightBlue,
+        color: Palette.lightBlue,
         value: malePercent,
         radius: 20,
         title: '',
       ),
       PieChartSectionData(
-        color: WebDashboardPalette.orange,
+        color: Palette.orange,
         value: femalePercent,
         radius: 20,
         title: '',
@@ -81,7 +81,7 @@ class _CircleChart extends StatelessWidget {
                 ),
                 const Text(
                   'Gender',
-                  style: WebDashboardTextStyles.myriadProSemiBold16DarkBlue,
+                  style: TextStyles.myriadProSemiBold16DarkBlue,
                 ),
               ],
             ),
@@ -92,14 +92,14 @@ class _CircleChart extends StatelessWidget {
             children: <Widget>[
               _CircleChartBottomInfo(
                 text: 'Male',
-                color: WebDashboardPalette.lightBlue,
+                color: Palette.lightBlue,
                 totalPercent: malePercent,
                 growthPercent: 3.9,
               ),
               const SizedBox(width: 50),
               _CircleChartBottomInfo(
                 text: 'Female',
-                color: WebDashboardPalette.orange,
+                color: Palette.orange,
                 totalPercent: femalePercent,
                 growthPercent: 38.9,
                 haveIncreased: false,
@@ -142,7 +142,7 @@ class _CircleChartBottomInfo extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               text,
-              style: WebDashboardTextStyles.myriadProRegular13DarkBlue,
+              style: TextStyles.myriadProRegular13DarkBlue,
             ),
           ],
         ),
@@ -151,20 +151,18 @@ class _CircleChartBottomInfo extends StatelessWidget {
             const SizedBox(width: 20),
             Text(
               totalPercent.toString() + '%',
-              style: WebDashboardTextStyles.myriadProSemiBold16DarkBlue,
+              style: TextStyles.myriadProSemiBold16DarkBlue,
             ),
             Icon(
               haveIncreased ? Icons.arrow_drop_up : Icons.arrow_drop_down,
               size: 20,
-              color: haveIncreased
-                  ? WebDashboardPalette.green
-                  : WebDashboardPalette.red,
+              color: haveIncreased ? Palette.green : Palette.red,
             ),
             Text(
               growthPercent.toString() + '%',
               style: haveIncreased
-                  ? WebDashboardTextStyles.myriadProSemiBold12Green
-                  : WebDashboardTextStyles.myriadProSemiBold12Red,
+                  ? TextStyles.myriadProSemiBold12Green
+                  : TextStyles.myriadProSemiBold12Red,
             ),
           ],
         ),
@@ -204,15 +202,15 @@ class _BarChart extends StatelessWidget {
           if (details.axis is NumericAxis) {
             return ChartAxisLabel(
               '${details.text}%',
-              WebDashboardTextStyles.myriadProRegular13DarkBlue.copyWith(
+              TextStyles.myriadProRegular13DarkBlue.copyWith(
                 fontSize: 12.8,
               ),
             );
           }
           return ChartAxisLabel(
             details.text,
-            WebDashboardTextStyles.myriadProRegular13DarkBlue.copyWith(
-              color: WebDashboardPalette.darkBlue.withOpacity(0.6),
+            TextStyles.myriadProRegular13DarkBlue.copyWith(
+              color: Palette.darkBlue.withOpacity(0.6),
               fontSize: 12.8,
             ),
           );
@@ -220,7 +218,7 @@ class _BarChart extends StatelessWidget {
         plotAreaBorderWidth: 0,
         title: ChartTitle(
           text: 'Age',
-          textStyle: WebDashboardTextStyles.myriadProSemiBold14DarkBlue,
+          textStyle: TextStyles.myriadProSemiBold14DarkBlue,
           alignment: ChartAlignment.near,
         ),
         primaryXAxis: CategoryAxis(
@@ -234,15 +232,15 @@ class _BarChart extends StatelessWidget {
           majorTickLines: const MajorTickLines(size: 0, width: 0),
           majorGridLines: const MajorGridLines(
             width: 0.5,
-            color: WebDashboardPalette.lightGrey,
+            color: Palette.lightGrey,
           ),
           minorTickLines: const MinorTickLines(size: 0, width: 0),
           minorGridLines: const MinorGridLines(width: 0),
           maximum: 15,
         ),
         palette: const <Color>[
-          WebDashboardPalette.orange,
-          WebDashboardPalette.lightBlue,
+          Palette.orange,
+          Palette.lightBlue,
         ],
         series: <ChartSeries>[
           _createBarSeries(femaleData),

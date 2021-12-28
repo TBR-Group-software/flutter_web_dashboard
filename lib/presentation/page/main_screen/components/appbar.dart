@@ -14,7 +14,7 @@ class WebDashboardAppBar extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            SvgPicture.asset(WebDashboardIcons.whiteLogo),
+            SvgPicture.asset(SvgIcons.whiteLogo),
             Row(
               children: const <Widget>[
                 _BellIcon(hasNotifications: true),
@@ -39,16 +39,16 @@ class _BellIcon extends StatelessWidget {
     return Stack(
       alignment: Alignment.topRight,
       children: <Widget>[
-        SvgPicture.asset(WebDashboardIcons.bell),
+        SvgPicture.asset(SvgIcons.bell),
         if (hasNotifications)
           Container(
             margin: const EdgeInsets.all(1),
             width: 8,
             height: 8,
             decoration: BoxDecoration(
-              color: WebDashboardPalette.blue,
+              color: Palette.blue,
               shape: BoxShape.circle,
-              border: Border.all(color: WebDashboardPalette.dirtyWhite),
+              border: Border.all(color: Palette.dirtyWhite),
             ),
           ),
       ],

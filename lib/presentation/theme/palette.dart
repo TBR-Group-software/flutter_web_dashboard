@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class WebDashboardPalette {
+class Palette {
   ///0xFFF8F9F9
   static const Color dirtyWhite = Color(0xFFF8F9F9);
 
