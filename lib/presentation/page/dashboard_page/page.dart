@@ -14,7 +14,7 @@ class DashboardPage extends StatelessWidget {
       child: ListView(
         children: const <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 120.0),
+            padding: EdgeInsets.only(top: 40.0),
             child: Text(
               'Welcome back!',
               style: TextStyles.myriadProSemiBold32DarkBlue,

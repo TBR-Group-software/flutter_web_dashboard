@@ -9,22 +9,36 @@ class WebDashboardAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SvgPicture.asset(SvgIcons.whiteLogo),
-            Row(
-              children: const <Widget>[
-                _BellIcon(hasNotifications: true),
-                SizedBox(width: 30),
-                CircleAvatar(backgroundColor: Colors.green, radius: 20),
+    return SizedBox(
+      height: 80,
+      width: double.infinity,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                const SizedBox(width: 47),
+                SvgPicture.asset(
+                  SvgIcons.whiteLogo,
+                  height: 14,
+                  width: 127,
+                  color: Palette.white,
+                ),
+                const Spacer(),
+                const _BellIcon(hasNotifications: true),
+                const SizedBox(width: 34),
+                const CircleAvatar(backgroundColor: Colors.green, radius: 23),
+                const SizedBox(width: 40),
               ],
             ),
-          ],
-        ),
-      ],
+          ),
+          const Divider(
+            color: Palette.lightGrey10,
+            thickness: 1,
+            height: 1,
+          ),
+        ],
+      ),
     );
   }
 }
@@ -39,7 +53,12 @@ class _BellIcon extends StatelessWidget {
     return Stack(
       alignment: Alignment.topRight,
       children: <Widget>[
-        SvgPicture.asset(SvgIcons.bell),
+        SvgPicture.asset(
+          SvgIcons.bell,
+          color: Palette.black,
+          width: 24,
+          height: 27.79,
+        ),
         if (hasNotifications)
           Container(
             margin: const EdgeInsets.all(1),

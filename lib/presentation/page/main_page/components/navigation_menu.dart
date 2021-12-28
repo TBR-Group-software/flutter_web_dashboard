@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_web_dashboard/presentation/routes/app_router.dart';
 
 import 'package:flutter_web_dashboard/presentation/theme/icons.dart';
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
@@ -13,30 +15,55 @@ class NavigationMenu extends StatefulWidget {
 }
 
 class _NavigationMenuState extends State<NavigationMenu> {
-  int selectedIndex = 0;
+  bool _isListenerAdded = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_isListenerAdded) {
+      AutoRouterDelegate.of(context).addListener(() {
+        if (mounted) setState(() {});
+      });
+      _isListenerAdded = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    String currentUrl = AutoRouterDelegate.of(context).urlState.path;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const SizedBox(height: 120),
         _MenuItem(
           iconPath: SvgIcons.home,
-          isSelected: selectedIndex == 0,
-          onTap: () => setState(() => selectedIndex = 0),
+          isSelected: currentUrl == '/${const DashboardRoute().path}',
+          onTap: () {
+            context.navigateTo(
+              const MainRoute(children: [DashboardRoute()]),
+            );
+          },
           text: 'Dashboard',
         ),
         _MenuItem(
           iconPath: SvgIcons.stack,
-          isSelected: selectedIndex == 1,
-          onTap: () => setState(() => selectedIndex = 1),
+          isSelected: currentUrl == '/${const ContentManagementRoute().path}',
+          onTap: () {
+            context.navigateTo(
+              const MainRoute(children: [ContentManagementRoute()]),
+            );
+          },
           text: 'Content Management',
         ),
         _MenuItem(
           iconPath: SvgIcons.cup,
-          isSelected: selectedIndex == 2,
-          onTap: () => setState(() => selectedIndex = 2),
+          isSelected:
+              currentUrl == '/${const UserLoyaltyAndRewardsRoute().path}',
+          onTap: () {
+            context.navigateTo(
+              const MainRoute(children: [UserLoyaltyAndRewardsRoute()]),
+            );
+          },
           text: 'User Loyalty & Rewards',
         ),
       ],
@@ -94,10 +121,8 @@ class _MenuItem extends StatelessWidget {
                   text,
                   style: isSelected
                       ? TextStyles.myriadProSemiBold12DirtyWhite
-                      : TextStyles.myriadProSemiBold12DirtyWhite
-                          .copyWith(
-                          color:
-                              Palette.dirtyWhite.withOpacity(0.8),
+                      : TextStyles.myriadProSemiBold12DirtyWhite.copyWith(
+                          color: Palette.dirtyWhite.withOpacity(0.8),
                         ),
                 ),
               ],

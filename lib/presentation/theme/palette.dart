@@ -49,6 +49,12 @@ class Palette {
   ///0xFFEAECEF
   static const Color lightGrey = Color(0xFFEAECEF);
 
+  ///0x1AEAECEF
+  static const Color lightGrey10 = Color(0x1AEAECEF);
+
   ///0xFFFF6A6A
   static const Color red = Color(0xFFFF6A6A);
+
+  ///0xFFFFFFFF
+  static const Color white = Color(0xFFFFFFFF);
 }
