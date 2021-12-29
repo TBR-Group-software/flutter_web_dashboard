@@ -10,6 +10,9 @@ class Palette {
   ///0xFF1C86DF
   static const Color lightBlue = Color(0xFF1C86DF);
 
+  ///0x141C86DF
+  static const Color lightBlue10 = Color(0x141C86DF);
+
   ///0xFF015DAB
   static const Color brandBlue = Color(0xFF015DAB);
 
@@ -22,11 +25,17 @@ class Palette {
   ///0xFF974DF4
   static const Color purple = Color(0xFF974DF4);
 
+  ///0x19974DF4
+  static const Color purple10 = Color(0x19974DF4);
+
   ///0xFFEEE8F8
   static const Color lightPurple = Color(0xFFEEE8F8);
 
   ///0xFFFF7537
   static const Color orange = Color(0xFFFF7537);
+
+  ///0x19FF7537
+  static const Color orange10 = Color(0x19FF7537);
 
   ///0xFFFFD233
   static const Color yellow = Color(0xFFFFD233);

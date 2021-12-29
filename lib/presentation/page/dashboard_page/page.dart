@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/devices_box.dart';
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/information_row.dart';
+
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/platforms_box.dart';
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/page.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
@@ -23,10 +24,21 @@ class DashboardPage extends StatelessWidget {
           ),
           const SizedBox(height: 28),
           const InformationRow(),
-          Row(
+          const SizedBox(height: 22),
+          Wrap(
+            spacing: 22,
+            runSpacing: 22,
             children: const <Widget>[
               StatisticsBox(),
               PlatformsBox(),
+            ],
+          ),
+          const SizedBox(height: 22),
+          Wrap(
+            spacing: 22,
+            runSpacing: 22,
+            children: const <Widget>[
+              DevicesBox(),
             ],
           ),
         ],
