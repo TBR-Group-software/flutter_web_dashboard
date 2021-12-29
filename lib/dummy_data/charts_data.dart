@@ -20,3 +20,16 @@ const List<UsersAgeData> maleData = <UsersAgeData>[
   UsersAgeData('25 - 34', 14),
   UsersAgeData('18 - 24', 8),
 ];
+
+const Map<int, List<double>> activeUsersData = <int, List<double>>{
+  1: [200, 310],
+  2: [305, 450],
+  3: [270, 390],
+  4: [210, 310],
+  5: [100, 160],
+  6: [300, 450],
+  7: [210, 310],
+  8: [150, 210],
+  9: [210, 310],
+  10: [210, 308],
+};
