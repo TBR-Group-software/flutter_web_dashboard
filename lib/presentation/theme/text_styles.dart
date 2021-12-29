@@ -131,13 +131,15 @@ class TextStyles {
   ///fontSize: 13,
   ///
   ///fontWeight: FontWeight.w400,
+  ///
+  ///letterSpacing: 0.25
 
   static const TextStyle myriadProRegular13DarkGrey = TextStyle(
-    fontFamily: Fonts.myriadPro,
-    color: Palette.darkGrey,
-    fontSize: 13,
-    fontWeight: FontWeight.w400,
-  );
+      fontFamily: Fonts.myriadPro,
+      color: Palette.darkGrey,
+      fontSize: 13,
+      fontWeight: FontWeight.w400,
+      letterSpacing: 0.25);
 
   ///fontFamily: WebDashboardFonts.MyriadPro,
   ///
@@ -170,6 +172,24 @@ class TextStyles {
     fontSize: 13,
     fontWeight: FontWeight.w400,
     letterSpacing: 0.25,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.darkBlue60,
+  ///
+  ///fontSize: 13,
+  ///
+  ///fontWeight: FontWeight.w400,
+  ///
+  ///letterSpacing: -0.45,
+
+  static const TextStyle myriadProRegular13DarkBlue60 = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue60,
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    letterSpacing: -0.45,
   );
 
   ///fontFamily: WebDashboardFonts.MyriadPro,
@@ -215,6 +235,60 @@ class TextStyles {
     color: Palette.darkBlue,
     fontSize: 16,
     fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.darkBlue,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w600,
+  ///
+  ///letterSpacing: 0.2,
+
+  static const TextStyle myriadProSemiBold18Purple = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.purple,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.orange,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w600,
+  ///
+  ///letterSpacing: 0.2,
+
+  static const TextStyle myriadProSemiBold18Orange = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.orange,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.orange,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w600,
+  ///
+  ///letterSpacing: 0.2,
+
+  static const TextStyle myriadProSemiBold18LightBlue = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.lightBlue,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
   );
 
   ///fontFamily: WebDashboardFonts.MyriadPro,
