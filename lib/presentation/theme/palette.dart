@@ -7,6 +7,12 @@ class Palette {
   ///0xFF5363F6
   static const Color blue = Color(0xFF5363F6);
 
+  ///0xFFE7F0F8
+  static const Color mediumBlue = Color(0xFFE7F0F8);
+
+  ///0x80E7F0F8
+  static const Color mediumBlue50 = Color(0x80E7F0F8);
+
   ///0xFF1C86DF
   static const Color lightBlue = Color(0xFF1C86DF);
 
@@ -18,6 +24,9 @@ class Palette {
 
   ///0xFF15224F
   static const Color darkBlue = Color(0xFF15224F);
+
+  ///0x9915224F
+  static const Color darkBlue60 = Color(0x9915224F);
 
   ///0xFF191C24
   static const Color dark = Color(0xFF191C24);
@@ -54,6 +63,9 @@ class Palette {
 
   ///0xFFA7ACBD
   static const Color grey = Color(0xFFA7ACBD);
+
+  ///0x66ECEDF1
+  static const Color mediumGrey40 = Color(0x66ECEDF1);
 
   ///0xFFEAECEF
   static const Color lightGrey = Color(0xFFEAECEF);
