@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
 
 class PlatformsBox extends StatelessWidget {
@@ -10,74 +11,198 @@ class PlatformsBox extends StatelessWidget {
     return Container(
       width: 268,
       height: 413,
-      margin: const EdgeInsets.only(left: 22),
+      padding: const EdgeInsets.fromLTRB(32, 22, 32, 32),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Column(
-        children: [
-          ScatterChartSample1(),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const <Widget>[
+          Text(
+            'Platforms',
+            style: TextStyles.myriadProSemiBold22DarkBlue,
+          ),
+          SizedBox(height: 24),
+          _Circles(),
+          SizedBox(height: 21),
+          _PlatformsList(),
         ],
       ),
     );
   }
 }
 
-class ScatterChartSample1 extends StatefulWidget {
-  const ScatterChartSample1({Key? key}) : super(key: key);
+class _Circles extends StatelessWidget {
+  const _Circles({Key? key}) : super(key: key);
 
-  @override
-  State<StatefulWidget> createState() => _ScatterChartSample1State();
-}
-
-class _ScatterChartSample1State extends State {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blueGrey,
-      child: SizedBox(
-        width: 160,
-        height: 150,
-        child: Stack(
-          children: const <Widget>[
-            Positioned(
-              bottom: 25,
-              child: CircleAvatar(
-                radius: 40,
-                backgroundColor: Colors.green,
-                child: Text(
-                  '30',
-                  style: TextStyles.myriadProSemiBold22White,
-                ),
+    return SizedBox(
+      width: 170,
+      height: 150,
+      child: Stack(
+        children: const <Widget>[
+          Positioned(
+            bottom: 25,
+            child: CircleAvatar(
+              radius: 45,
+              backgroundColor: Palette.purple,
+              child: Text(
+                '30',
+                style: TextStyles.myriadProSemiBold22White,
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 50,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.blue,
-                child: Text(
-                  '10',
-                  style: TextStyles.myriadProSemiBold22White,
-                ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 55,
+            child: CircleAvatar(
+              radius: 32,
+              backgroundColor: Palette.lightBlue,
+              child: Text(
+                '10',
+                style: TextStyles.myriadProSemiBold22White,
               ),
             ),
-            Positioned(
-              left: 50,
-              child: CircleAvatar(
-                radius: 55,
-                backgroundColor: Colors.red,
-                child: Text(
-                  '60',
-                  style: TextStyles.myriadProSemiBold24White,
-                ),
+          ),
+          Positioned(
+            left: 60,
+            child: CircleAvatar(
+              radius: 55,
+              backgroundColor: Palette.orange,
+              child: Text(
+                '60',
+                style: TextStyles.myriadProSemiBold24White,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
+  }
+}
+
+class _PlatformsList extends StatelessWidget {
+  const _PlatformsList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const <Widget>[
+        _PlatformListElement(
+          platformName: 'Android',
+          percent: 60,
+          foregroundColor: Palette.orange,
+          backgroundColor: Palette.orange10,
+        ),
+        SizedBox(height: 20),
+        _PlatformListElement(
+          platformName: 'iOS',
+          percent: 30,
+          foregroundColor: Palette.purple,
+          backgroundColor: Palette.purple10,
+        ),
+        SizedBox(height: 20),
+        _PlatformListElement(
+          platformName: 'Web',
+          percent: 10,
+          foregroundColor: Palette.lightBlue,
+          backgroundColor: Palette.lightBlue10,
+        ),
+      ],
+    );
+  }
+}
+
+class _PlatformListElement extends StatelessWidget {
+  const _PlatformListElement({
+    required this.platformName,
+    required this.percent,
+    required this.backgroundColor,
+    required this.foregroundColor,
+    Key? key,
+  }) : super(key: key);
+
+  final String platformName;
+
+  final double percent;
+
+  final Color backgroundColor;
+  final Color foregroundColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(platformName, style: TextStyles.myriadProSemiBold13Dark),
+            Text('$percent%', style: TextStyles.myriadProRegular13DarkGrey),
+          ],
+        ),
+        const SizedBox(height: 3),
+        SizedBox(
+          height: 10,
+          width: double.infinity,
+          child: CustomPaint(
+            painter: _PercentBarPainter(
+              backgroundColor: backgroundColor,
+              valueColor: foregroundColor,
+              value: percent / 100,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _PercentBarPainter extends CustomPainter {
+  const _PercentBarPainter({
+    required this.backgroundColor,
+    required this.valueColor,
+    required this.value,
+  });
+
+  final Color backgroundColor;
+  final Color valueColor;
+
+  final double value;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint paint = Paint()
+      ..color = backgroundColor
+      ..style = PaintingStyle.fill;
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(Offset.zero & size, const Radius.circular(4.5)),
+      paint,
+    );
+
+    paint.color = valueColor;
+
+    void drawBar(double x, double width) {
+      if (width <= 0.0) return;
+
+      canvas.drawRRect(
+        RRect.fromRectAndRadius(
+          Offset(x, 0.0) & Size(width, size.height),
+          const Radius.circular(4.5),
+        ),
+        paint,
+      );
+    }
+
+    drawBar(0.0, value.clamp(0.0, 1.0) * size.width);
+  }
+
+  @override
+  bool shouldRepaint(_PercentBarPainter oldPainter) {
+    return oldPainter.backgroundColor != backgroundColor ||
+        oldPainter.valueColor != valueColor ||
+        oldPainter.value != value;
   }
 }
