@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import 'package:flutter_web_dashboard/dummy_data/age_chart_data.dart';
+import 'package:flutter_web_dashboard/dummy_data/charts_data.dart';
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
 

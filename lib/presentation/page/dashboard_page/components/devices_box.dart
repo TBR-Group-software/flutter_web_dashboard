@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
+import 'package:flutter_web_dashboard/presentation/widget/name_and_color_row.dart';
 
 class DevicesBox extends StatelessWidget {
   const DevicesBox({Key? key}) : super(key: key);
@@ -8,7 +10,7 @@ class DevicesBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 560,
+      width: 559,
       height: 340,
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
@@ -83,7 +85,7 @@ class _DevicesBoxElement extends StatelessWidget {
           width: double.infinity,
           child: CustomPaint(
             painter: _BarPainter(
-              backgroundColor: Palette.lightBlue10,
+              backgroundColor: Palette.mediumBlue,
               valuesColor: colors,
               values: percents,
             ),
@@ -94,43 +96,18 @@ class _DevicesBoxElement extends StatelessWidget {
           children: <Widget>[
             ...List<Widget>.generate(colors.length + 1, (int index) {
               if (index == colors.length) {
-                return const _NameColorRow(
-                  color: Palette.lightBlue10,
+                return const NameAndColorRow(
+                  color: Palette.mediumBlue,
                   text: 'Others',
                 );
               }
-              return _NameColorRow(
+              return NameAndColorRow(
                 color: colors[index],
                 text: markersName[index],
               );
             }),
           ],
         ),
-      ],
-    );
-  }
-}
-
-class _NameColorRow extends StatelessWidget {
-  const _NameColorRow({
-    required this.color,
-    required this.text,
-    Key? key,
-  }) : super(key: key);
-
-  final Color color;
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        CircleAvatar(radius: 5, backgroundColor: color),
-        const SizedBox(width: 8),
-        Text(text, style: TextStyles.myriadProRegular13DarkBlue),
-        const SizedBox(width: 36),
       ],
     );
   }

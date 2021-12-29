@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/active_users_box.dart';
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/devices_box.dart';
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/information_row.dart';
 
@@ -39,6 +40,7 @@ class DashboardPage extends StatelessWidget {
             runSpacing: 22,
             children: const <Widget>[
               DevicesBox(),
+              ActiveUsersBox(),
             ],
           ),
         ],
