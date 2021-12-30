@@ -28,7 +28,7 @@ This is a dashboard that allows the users to manage tasks, projects, files, view
 - [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) - To separate architecture into loosely coupled layers.
 - [Auto Route](https://pub.dev/packages/auto_route) - Navigation of the application.
 - [Fl Chart](https://pub.dev/packages/fl_chart) - Pie Chart and Vertical Bar Charts .
-- [Syncfusion Flutter Charts](https://pub.dev/packages/get_it) - Horizontal Bar Charts.
+- [Syncfusion Flutter Charts](https://pub.dev/packages/syncfusion_flutter_charts) - Horizontal Bar Charts.
 
 
 
