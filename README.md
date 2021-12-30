@@ -143,4 +143,4 @@ flutter pub get
 ```
 
 ## License
-This project is licensed under the GNU GPL v3 License - see the [LICENSE.md](https://github.com/TBR-Group-software/flutter_cryptocurrency_charts/blob/main/LICENSE) file for details.
+This project is licensed under the GNU GPL v3 License - see the [LICENSE.md](https://github.com/TBR-Group-software/flutter_web_dashboard/blob/main/LICENSE.md) file for details.
