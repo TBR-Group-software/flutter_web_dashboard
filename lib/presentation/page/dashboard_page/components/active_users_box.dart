@@ -36,6 +36,7 @@ class ActiveUsersBox extends StatelessWidget {
                 Row(
                   children: const <Widget>[
                     NameAndColorRow(color: Palette.lightBlue, text: 'Users'),
+                    SizedBox(width: 36),
                     NameAndColorRow(
                         color: Palette.mediumBlue, text: 'New Users'),
                   ],

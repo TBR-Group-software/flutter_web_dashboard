@@ -21,7 +21,6 @@ class NameAndColorRow extends StatelessWidget {
         CircleAvatar(radius: 5, backgroundColor: color),
         const SizedBox(width: 8),
         Text(text, style: TextStyles.myriadProRegular13DarkBlue),
-        const SizedBox(width: 36),
       ],
     );
   }

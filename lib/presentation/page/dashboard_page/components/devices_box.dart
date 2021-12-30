@@ -10,8 +10,7 @@ class DevicesBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 559,
-      height: 340,
+      constraints: const BoxConstraints(maxWidth: 559, minHeight: 340),
       padding: const EdgeInsets.all(32),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -64,6 +63,7 @@ class _DevicesBoxElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,7 +92,9 @@ class _DevicesBoxElement extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        Row(
+        Wrap(
+          spacing: 36,
+          runSpacing: 10,
           children: <Widget>[
             ...List<Widget>.generate(colors.length + 1, (int index) {
               if (index == colors.length) {
