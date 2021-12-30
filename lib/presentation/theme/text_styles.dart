@@ -111,18 +111,35 @@ class TextStyles {
 
   ///fontFamily: WebDashboardFonts.MyriadPro,
   ///
-  ///color: WebDashboardPalette.darkBlue,
+  ///color: WebDashboardPalette.lightBlue,
   ///
-  ///fontSize: 14,
+  ///fontSize: 16,
   ///
   ///fontWeight: FontWeight.w600,
 
-  static const TextStyle myriadProSemiBold14DarkBlue = TextStyle(
+  static const TextStyle myriadProSemiBold16LightBlue = TextStyle(
     fontFamily: Fonts.myriadPro,
-    color: Palette.darkBlue,
-    fontSize: 14,
+    color: Palette.lightBlue,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
   );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.darkGrey,
+  ///
+  ///fontSize: 13,
+  ///
+  ///fontWeight: FontWeight.w400,
+  ///
+  ///letterSpacing: 0.25
+
+  static const TextStyle myriadProRegular13DarkGrey = TextStyle(
+      fontFamily: Fonts.myriadPro,
+      color: Palette.darkGrey,
+      fontSize: 13,
+      fontWeight: FontWeight.w400,
+      letterSpacing: 0.25);
 
   ///fontFamily: WebDashboardFonts.MyriadPro,
   ///
@@ -143,9 +160,75 @@ class TextStyles {
   ///
   ///color: WebDashboardPalette.darkBlue,
   ///
-  ///fontSize: 16,
+  ///fontSize: 13,
   ///
   ///fontWeight: FontWeight.w400,
+  ///
+  ///letterSpacing: 0.25,
+
+  static const TextStyle myriadProRegular13DarkBlue = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue,
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    letterSpacing: 0.25,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.darkBlue60,
+  ///
+  ///fontSize: 13,
+  ///
+  ///fontWeight: FontWeight.w400,
+  ///
+  ///letterSpacing: -0.45,
+
+  static const TextStyle myriadProRegular13DarkBlue60 = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue60,
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    letterSpacing: -0.45,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.dark,
+  ///
+  ///fontSize: 13,
+  ///
+  ///fontWeight: FontWeight.w600,
+
+  static const TextStyle myriadProSemiBold13Dark = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.dark,
+    fontSize: 13,
+    fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.darkBlue,
+  ///
+  ///fontSize: 14,
+  ///
+  ///fontWeight: FontWeight.w600,
+
+  static const TextStyle myriadProSemiBold14DarkBlue = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.darkBlue,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.darkBlue,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w600,
 
   static const TextStyle myriadProSemiBold16DarkBlue = TextStyle(
     fontFamily: Fonts.myriadPro,
@@ -158,14 +241,83 @@ class TextStyles {
   ///
   ///color: WebDashboardPalette.darkBlue,
   ///
-  ///fontSize: 13,
+  ///fontSize: 16,
   ///
-  ///fontWeight: FontWeight.w400,
+  ///fontWeight: FontWeight.w600,
+  ///
+  ///letterSpacing: 0.2,
 
-  static const TextStyle myriadProRegular13DarkBlue = TextStyle(
+  static const TextStyle myriadProSemiBold18Purple = TextStyle(
     fontFamily: Fonts.myriadPro,
-    color: Palette.darkBlue,
-    fontSize: 13,
-    fontWeight: FontWeight.w400,
+    color: Palette.purple,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.orange,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w600,
+  ///
+  ///letterSpacing: 0.2,
+
+  static const TextStyle myriadProSemiBold18Orange = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.orange,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.orange,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w600,
+  ///
+  ///letterSpacing: 0.2,
+
+  static const TextStyle myriadProSemiBold18LightBlue = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.lightBlue,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: Colors.white,
+  ///
+  ///fontSize: 24,
+  ///
+  ///fontWeight: FontWeight.w600,
+
+  static const TextStyle myriadProSemiBold24White = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Colors.white,
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: Colors.white,
+  ///
+  ///fontSize: 22,
+  ///
+  ///fontWeight: FontWeight.w600,
+
+  static const TextStyle myriadProSemiBold22White = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Colors.white,
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
   );
 }

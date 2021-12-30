@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/demographics.dart';
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/interests.dart';
-import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/location_page.dart';
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/location.dart';
 import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
 

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/active_users_box.dart';
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/devices_box.dart';
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/information_row.dart';
+import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/platforms_box.dart';
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/page.dart';
 import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
 
@@ -12,7 +15,7 @@ class DashboardPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(40, 0, 20, 40),
       child: ListView(
-        children: const <Widget>[
+        children: <Widget>[
           Padding(
             padding: EdgeInsets.only(top: 40.0),
             child: Text(
@@ -20,11 +23,26 @@ class DashboardPage extends StatelessWidget {
               style: TextStyles.myriadProSemiBold32DarkBlue,
             ),
           ),
-          SizedBox(height: 28),
-          InformationRow(),
-
-          ///TODO delete alignment widget
-          Align(alignment: Alignment.topLeft, child: StatisticsBox()),
+          const SizedBox(height: 28),
+          const InformationRow(),
+          const SizedBox(height: 22),
+          Wrap(
+            spacing: 22,
+            runSpacing: 22,
+            children: const <Widget>[
+              StatisticsBox(),
+              PlatformsBox(),
+            ],
+          ),
+          const SizedBox(height: 22),
+          Wrap(
+            spacing: 22,
+            runSpacing: 22,
+            children: const <Widget>[
+              DevicesBox(),
+              ActiveUsersBox(),
+            ],
+          ),
         ],
       ),
     );

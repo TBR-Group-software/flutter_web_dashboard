@@ -4,14 +4,20 @@ class Palette {
   ///0xFFF8F9F9
   static const Color dirtyWhite = Color(0xFFF8F9F9);
 
-  ///0xFFF8F9F9
-  static const Color background = Color(0xFFF8F9F9);
-
   ///0xFF5363F6
   static const Color blue = Color(0xFF5363F6);
 
+  ///0xFFE7F0F8
+  static const Color mediumBlue = Color(0xFFE7F0F8);
+
+  ///0x80E7F0F8
+  static const Color mediumBlue50 = Color(0x80E7F0F8);
+
   ///0xFF1C86DF
   static const Color lightBlue = Color(0xFF1C86DF);
+
+  ///0x141C86DF
+  static const Color lightBlue10 = Color(0x141C86DF);
 
   ///0xFF015DAB
   static const Color brandBlue = Color(0xFF015DAB);
@@ -19,14 +25,26 @@ class Palette {
   ///0xFF15224F
   static const Color darkBlue = Color(0xFF15224F);
 
+  ///0x9915224F
+  static const Color darkBlue60 = Color(0x9915224F);
+
   ///0xFF191C24
   static const Color dark = Color(0xFF191C24);
 
+  ///0xFF974DF4
+  static const Color purple = Color(0xFF974DF4);
+
+  ///0x19974DF4
+  static const Color purple10 = Color(0x19974DF4);
+
   ///0xFFEEE8F8
-  static const Color purple = Color(0xFFEEE8F8);
+  static const Color lightPurple = Color(0xFFEEE8F8);
 
   ///0xFFFF7537
   static const Color orange = Color(0xFFFF7537);
+
+  ///0x19FF7537
+  static const Color orange10 = Color(0x19FF7537);
 
   ///0xFFFFD233
   static const Color yellow = Color(0xFFFFD233);
@@ -45,6 +63,9 @@ class Palette {
 
   ///0xFFA7ACBD
   static const Color grey = Color(0xFFA7ACBD);
+
+  ///0x66ECEDF1
+  static const Color mediumGrey40 = Color(0x66ECEDF1);
 
   ///0xFFEAECEF
   static const Color lightGrey = Color(0xFFEAECEF);

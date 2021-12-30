@@ -30,7 +30,7 @@ class MainPage extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: ColoredBox(
-                      color: Palette.background,
+                      color: Palette.dirtyWhite,
                       child: AutoRouter(),
                     ),
                   ),
