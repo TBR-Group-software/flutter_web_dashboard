@@ -3,9 +3,9 @@
 </p>
 
 ## About the project
-Goal of the project is to show the capabilities of [Flutter Web](https://flutter.dev/multi-platform/web).
+The goal of the project is to show the capabilities of [Flutter Web](https://flutter.dev/multi-platform/web).
 
-This is a dashboard that allows the users to manage tasks, projects, files, view statistic and share them with their teammates based on the Flutter Web.
+This is a dashboard that allows users to manage tasks, projects, files, view statistic and share them with their teammates based on the Flutter Web.
 
 <p float="center", align="left ">
   <img src="https://user-images.githubusercontent.com/86306159/147759885-18954d33-7319-4143-a402-42fdc4f07b49.png" width="500" />
