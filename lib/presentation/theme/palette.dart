@@ -64,6 +64,9 @@ class Palette {
   ///0xFFA7ACBD
   static const Color grey = Color(0xFFA7ACBD);
 
+  //0xFFEAF1F9
+  static const Color mediumGrey = Color(0xFFEAF1F9);
+
   ///0x66ECEDF1
   static const Color mediumGrey40 = Color(0x66ECEDF1);
 
