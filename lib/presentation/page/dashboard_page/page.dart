@@ -16,7 +16,7 @@ class DashboardPage extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(40, 0, 20, 40),
       child: ListView(
         children: <Widget>[
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 40.0),
             child: Text(
               'Welcome back!',
