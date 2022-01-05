@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/presentation/page/content_management_page/page.dart';
 import 'package:flutter_web_dashboard/presentation/page/dashboard_page/page.dart';
 import 'package:flutter_web_dashboard/presentation/page/main_page/page.dart';
-import 'package:flutter_web_dashboard/presentation/page/user_loyalty_and_rewards_page/user_loyalty_and_rewards_page.dart';
+import 'package:flutter_web_dashboard/presentation/page/user_loyalty_and_rewards_page/page.dart';
 
 part 'app_router.gr.dart';
 
