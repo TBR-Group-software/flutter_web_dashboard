@@ -26,12 +26,15 @@ class TextStyles {
   ///fontSize: 32,
   ///
   ///fontWeight: FontWeight.w600,
+  ///
+  ///letterSpacing: 0.2,
 
   static const TextStyle myriadProSemiBold32DarkBlue = TextStyle(
     fontFamily: Fonts.myriadPro,
     color: Palette.darkBlue,
     fontSize: 32,
     fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
   );
 
   ///fontFamily: WebDashboardFonts.MyriadPro,
@@ -122,6 +125,24 @@ class TextStyles {
     color: Palette.lightBlue,
     fontSize: 16,
     fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.lightBlue,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w600,
+  ///
+  /// letterSpacing: 0.2,
+
+  static const TextStyle myriadProSemiBold16White = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
   );
 
   ///fontFamily: WebDashboardFonts.MyriadPro,
@@ -235,6 +256,24 @@ class TextStyles {
     color: Palette.darkBlue,
     fontSize: 16,
     fontWeight: FontWeight.w600,
+  );
+
+  ///fontFamily: WebDashboardFonts.MyriadPro,
+  ///
+  ///color: WebDashboardPalette.dirtyWhite,
+  ///
+  ///fontSize: 16,
+  ///
+  ///fontWeight: FontWeight.w600,
+  ///
+  ///letterSpacing: 0.25,
+
+  static const TextStyle myriadProSemiBold16DirtyWhite = TextStyle(
+    fontFamily: Fonts.myriadPro,
+    color: Palette.dirtyWhite,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.25,
   );
 
   ///fontFamily: WebDashboardFonts.MyriadPro,
