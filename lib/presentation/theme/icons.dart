@@ -16,4 +16,10 @@ class SvgIcons {
   static const String newUserBlue = 'assets/icons/new_user_blue.svg';
 
   static const String speedometerYellow = 'assets/icons/speedometer_yellow.svg';
+
+  static const String arrowDown = 'assets/icons/arrow_down.svg';
+
+  static const String search = 'assets/icons/search.svg';
+
+  static const String addRounded = 'assets/icons/add_rounded.svg';
 }
