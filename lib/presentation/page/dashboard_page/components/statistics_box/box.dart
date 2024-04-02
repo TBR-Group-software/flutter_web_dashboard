@@ -1,19 +1,13 @@
-import 'package:flutter/material.dart';
+part of '../../page.dart';
 
-import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/demographics.dart';
-import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/interests.dart';
-import 'package:flutter_web_dashboard/presentation/page/dashboard_page/components/statistics_box/components/location.dart';
-import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
-import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
-
-class StatisticsBox extends StatefulWidget {
-  const StatisticsBox({Key? key}) : super(key: key);
+class _StatisticsBox extends StatefulWidget {
+  const _StatisticsBox();
 
   @override
-  State<StatisticsBox> createState() => _StatisticsBoxState();
+  State<_StatisticsBox> createState() => _StatisticsBoxState();
 }
 
-class _StatisticsBoxState extends State<StatisticsBox> {
+class _StatisticsBoxState extends State<_StatisticsBox> {
   final PageController _controller = PageController(initialPage: 1);
 
   @override
@@ -26,7 +20,7 @@ class _StatisticsBoxState extends State<StatisticsBox> {
   Widget build(BuildContext context) {
     return Container(
       width: 848,
-      height: 413,
+      height: 430,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
@@ -48,9 +42,9 @@ class _StatisticsBoxState extends State<StatisticsBox> {
               physics: const NeverScrollableScrollPhysics(),
               controller: _controller,
               children: const <Widget>[
-                LocationPage(),
-                DemographicsPage(),
-                InterestsPage(),
+                _LocationPage(),
+                _DemographicsPage(),
+                _InterestsPage(),
               ],
             ),
           ),
@@ -61,8 +55,7 @@ class _StatisticsBoxState extends State<StatisticsBox> {
 }
 
 class _StatisticsTabs extends StatefulWidget {
-  const _StatisticsTabs({required this.pageController, Key? key})
-      : super(key: key);
+  const _StatisticsTabs({required this.pageController});
 
   final PageController pageController;
 
@@ -100,37 +93,33 @@ class _StatisticsTabsState extends State<_StatisticsTabs>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 30,
-      child: Stack(
-        children: [
-          const Align(
-            alignment: Alignment.bottomCenter,
-            child: Divider(color: Palette.lightGrey),
-          ),
-          TabBar(
-            padding: const EdgeInsets.only(left: 20),
-            isScrollable: true,
-            controller: _controller,
-            indicatorSize: TabBarIndicatorSize.label,
-            tabs: [
-              _StatisticsTab(isSelected: selectedIndex == 0, text: 'Location'),
-              _StatisticsTab(
-                isSelected: selectedIndex == 1,
-                text: 'Demographics',
-              ),
-              _StatisticsTab(isSelected: selectedIndex == 2, text: 'Interests'),
-            ],
-          ),
-        ],
-      ),
+    return TabBar(
+      padding: const EdgeInsets.only(left: 20),
+      tabAlignment: TabAlignment.start,
+      isScrollable: true,
+      controller: _controller,
+      indicatorSize: TabBarIndicatorSize.label,
+      indicatorColor: Palette.lightBlue,
+      tabs: [
+        _StatisticsTab(
+          isSelected: selectedIndex == 0,
+          text: 'Location',
+        ),
+        _StatisticsTab(
+          isSelected: selectedIndex == 1,
+          text: 'Demographics',
+        ),
+        _StatisticsTab(
+          isSelected: selectedIndex == 2,
+          text: 'Interests',
+        ),
+      ],
     );
   }
 }
 
 class _StatisticsTab extends StatelessWidget {
-  const _StatisticsTab({required this.text, required this.isSelected, Key? key})
-      : super(key: key);
+  const _StatisticsTab({required this.text, required this.isSelected});
 
   final bool isSelected;
 
@@ -139,7 +128,7 @@ class _StatisticsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 20,
+      height: 30,
       child: Text(
         text,
         style: isSelected

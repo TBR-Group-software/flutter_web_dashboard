@@ -1,6 +1,6 @@
 {
-    "name": "flutter_web_dashboard",
-    "short_name": "flutter_web_dashboard",
+    "name": "Web dashboard",
+    "short_name": "Web dashboard",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

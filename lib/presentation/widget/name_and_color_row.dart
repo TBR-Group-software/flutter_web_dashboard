@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
+import '../theme/text_styles.dart';
 
 class NameAndColorRow extends StatelessWidget {
   const NameAndColorRow({
     required this.color,
     required this.text,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Color color;
 

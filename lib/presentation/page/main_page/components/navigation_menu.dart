@@ -1,20 +1,13 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_web_dashboard/presentation/routes/app_router.dart';
+part of '../page.dart';
 
-import 'package:flutter_web_dashboard/presentation/theme/icons.dart';
-import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
-import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
-
-class NavigationMenu extends StatefulWidget {
-  const NavigationMenu({Key? key}) : super(key: key);
+class _NavigationMenu extends StatefulWidget {
+  const _NavigationMenu();
 
   @override
-  State<NavigationMenu> createState() => _NavigationMenuState();
+  State<_NavigationMenu> createState() => _NavigationMenuState();
 }
 
-class _NavigationMenuState extends State<NavigationMenu> {
+class _NavigationMenuState extends State<_NavigationMenu> {
   bool _isListenerAdded = false;
 
   @override
@@ -28,42 +21,44 @@ class _NavigationMenuState extends State<NavigationMenu> {
     }
   }
 
+  void _onTabTap(PageRouteInfo<dynamic> route) {
+    context.pushRoute(route);
+  }
+
   @override
   Widget build(BuildContext context) {
-    String currentUrl = AutoRouterDelegate.of(context).urlState.path;
+    final currentUrl = AutoRouterDelegate.of(context).urlState.path;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const SizedBox(height: 120),
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 32),
+            child: ProjectAssets.icons.whiteLogo.svg(
+              height: 14,
+              width: 127,
+              colorFilter: Palette.white.toColorFilter,
+            ),
+          ),
+        ),
+        const SizedBox(height: 40),
         _MenuItem(
-          iconPath: SvgIcons.home,
-          isSelected: currentUrl == '/${const DashboardRoute().path}',
-          onTap: () {
-            context.navigateTo(
-              const MainRoute(children: [DashboardRoute()]),
-            );
-          },
+          iconPath: ProjectAssets.icons.home.path,
+          isSelected: currentUrl == '/dashboard',
+          onTap: () => _onTabTap(const DashboardRoute()),
           text: 'Dashboard',
         ),
         _MenuItem(
-          iconPath: SvgIcons.stack,
-          isSelected: currentUrl == '/${const ContentManagementRoute().path}',
-          onTap: () {
-            context.navigateTo(
-              const MainRoute(children: [ContentManagementRoute()]),
-            );
-          },
+          iconPath: ProjectAssets.icons.stack.path,
+          isSelected: currentUrl == '/content-management',
+          onTap: () => _onTabTap(const ContentManagementRoute()),
           text: 'Content Management',
         ),
         _MenuItem(
-          iconPath: SvgIcons.cup,
-          isSelected:
-              currentUrl == '/${const UserLoyaltyAndRewardsRoute().path}',
-          onTap: () {
-            context.navigateTo(
-              const MainRoute(children: [UserLoyaltyAndRewardsRoute()]),
-            );
-          },
+          iconPath: ProjectAssets.icons.cup.path,
+          isSelected: currentUrl == '/user-loyalty-and-rewards',
+          onTap: () => _onTabTap(const UserLoyaltyAndRewardsRoute()),
           text: 'User Loyalty & Rewards',
         ),
       ],
@@ -77,8 +72,7 @@ class _MenuItem extends StatelessWidget {
     required this.text,
     required this.isSelected,
     required this.onTap,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String iconPath;
 
@@ -114,7 +108,8 @@ class _MenuItem extends StatelessWidget {
                   iconPath,
                   width: 16,
                   height: 16,
-                  color: isSelected ? Palette.dirtyWhite : null,
+                  colorFilter:
+                      isSelected ? Palette.dirtyWhite.toColorFilter : null,
                 ),
                 const SizedBox(width: 8),
                 Text(

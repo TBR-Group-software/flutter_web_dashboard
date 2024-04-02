@@ -1,13 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+part of '../page.dart';
 
-import 'package:flutter_web_dashboard/presentation/theme/icons.dart';
-import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
-import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
-import 'package:intl/intl.dart';
-
-class InformationRow extends StatelessWidget {
-  const InformationRow({Key? key}) : super(key: key);
+class _InformationRow extends StatelessWidget {
+  const _InformationRow();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +10,7 @@ class InformationRow extends StatelessWidget {
       runSpacing: 22,
       children: <Widget>[
         _InformationBox(
-          icon: SvgPicture.asset(SvgIcons.rocketOrange),
+          icon: ProjectAssets.icons.rocketOrange.svg(),
           backgroundColor: Palette.orange.withOpacity(0.1),
           number: 21343,
           haveIncreased: true,
@@ -24,7 +18,7 @@ class InformationRow extends StatelessWidget {
           text: 'Total Installation',
         ),
         _InformationBox(
-          icon: SvgPicture.asset(SvgIcons.chartPurple),
+          icon: ProjectAssets.icons.chartPurple.svg(),
           backgroundColor: Palette.lightPurple.withOpacity(0.8),
           number: 22424,
           haveIncreased: true,
@@ -32,7 +26,7 @@ class InformationRow extends StatelessWidget {
           text: 'Total Active Users',
         ),
         _InformationBox(
-          icon: SvgPicture.asset(SvgIcons.newUserBlue),
+          icon: ProjectAssets.icons.newUserBlue.svg(),
           backgroundColor: Palette.lightBlue.withOpacity(0.1),
           number: 353,
           haveIncreased: true,
@@ -40,7 +34,7 @@ class InformationRow extends StatelessWidget {
           text: 'New Users',
         ),
         _InformationBox(
-          icon: SvgPicture.asset(SvgIcons.speedometerYellow),
+          icon: ProjectAssets.icons.speedometerYellow.svg(),
           backgroundColor: Palette.yellow.withOpacity(0.2),
           number: 34,
           showPercent: true,
@@ -49,86 +43,6 @@ class InformationRow extends StatelessWidget {
           text: 'Retention Rate',
         ),
       ],
-    );
-  }
-}
-
-class _InformationBox extends StatelessWidget {
-  const _InformationBox({
-    required this.icon,
-    required this.backgroundColor,
-    required this.number,
-    required this.percent,
-    required this.text,
-    required this.haveIncreased,
-    this.showPercent = false,
-    Key? key,
-  }) : super(key: key);
-
-  final Widget icon;
-  final Color backgroundColor;
-
-  final int number;
-
-  final bool showPercent;
-
-  final double percent;
-
-  final bool haveIncreased;
-
-  final String text;
-
-  String _formatNumber(int number) {
-    if (number.toString().length >= 10) {
-      return NumberFormat.compact().format(number);
-    } else {
-      return NumberFormat.decimalPattern().format(number).replaceAll(',', ' ');
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 268,
-      height: 163,
-      padding: const EdgeInsets.only(top: 22, bottom: 22),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Column(
-        children: <Widget>[
-          CircleAvatar(
-            radius: 24,
-            backgroundColor: backgroundColor,
-            child: icon,
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(
-                showPercent ? number.toString() + '%' : _formatNumber(number),
-                style: TextStyles.myriadProSemiBold24Dark,
-              ),
-              const SizedBox(width: 5),
-              Icon(
-                haveIncreased ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-                size: 20,
-                color: haveIncreased ? Palette.green : Palette.red,
-              ),
-              Text(
-                percent.toString() + '%',
-                style: haveIncreased
-                    ? TextStyles.myriadProSemiBold12Green
-                    : TextStyles.myriadProSemiBold12Red,
-              ),
-            ],
-          ),
-          const SizedBox(height: 7),
-          Text(text, style: TextStyles.myriadProRegular16DarkGrey),
-        ],
-      ),
     );
   }
 }

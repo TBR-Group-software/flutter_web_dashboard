@@ -1,42 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+part of '../page.dart';
 
-import 'package:flutter_web_dashboard/presentation/theme/icons.dart';
-import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
-
-class WebDashboardAppBar extends StatelessWidget {
-  const WebDashboardAppBar({Key? key}) : super(key: key);
+class _AppBar extends StatelessWidget {
+  const _AppBar();
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       height: 80,
-      width: double.infinity,
-      child: Column(
+      child: Row(
         children: <Widget>[
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                const SizedBox(width: 47),
-                SvgPicture.asset(
-                  SvgIcons.whiteLogo,
-                  height: 14,
-                  width: 127,
-                  color: Palette.white,
-                ),
-                const Spacer(),
-                const _BellIcon(hasNotifications: true),
-                const SizedBox(width: 34),
-                const CircleAvatar(backgroundColor: Colors.green, radius: 23),
-                const SizedBox(width: 40),
-              ],
-            ),
-          ),
-          const Divider(
-            color: Palette.lightGrey10,
-            thickness: 1,
-            height: 1,
-          ),
+          Spacer(),
+          _BellIcon(hasNotifications: true),
+          SizedBox(width: 34),
+          CircleAvatar(backgroundColor: Colors.green, radius: 23),
+          SizedBox(width: 40),
         ],
       ),
     );
@@ -44,7 +21,7 @@ class WebDashboardAppBar extends StatelessWidget {
 }
 
 class _BellIcon extends StatelessWidget {
-  const _BellIcon({required this.hasNotifications, Key? key}) : super(key: key);
+  const _BellIcon({required this.hasNotifications});
 
   final bool hasNotifications;
 
@@ -53,11 +30,10 @@ class _BellIcon extends StatelessWidget {
     return Stack(
       alignment: Alignment.topRight,
       children: <Widget>[
-        SvgPicture.asset(
-          SvgIcons.bell,
-          color: Palette.black,
+        ProjectAssets.icons.bell.svg(
           width: 24,
           height: 27.79,
+          colorFilter: Palette.black.toColorFilter,
         ),
         if (hasNotifications)
           Container(

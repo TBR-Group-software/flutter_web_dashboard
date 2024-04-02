@@ -1,11 +1,7 @@
-import 'package:flutter/material.dart';
+part of '../page.dart';
 
-import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
-import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
-import 'package:flutter_web_dashboard/presentation/widget/name_and_color_row.dart';
-
-class DevicesBox extends StatelessWidget {
-  const DevicesBox({Key? key}) : super(key: key);
+class _DevicesBox extends StatelessWidget {
+  const _DevicesBox();
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +12,9 @@ class DevicesBox extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
       ),
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const <Widget>[
+        children: <Widget>[
           _DevicesBoxElement(
             text: 'Devices',
             buttonText: 'View All',
@@ -46,8 +42,7 @@ class _DevicesBoxElement extends StatelessWidget {
     required this.percents,
     required this.markersName,
     this.buttonText,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String text;
 

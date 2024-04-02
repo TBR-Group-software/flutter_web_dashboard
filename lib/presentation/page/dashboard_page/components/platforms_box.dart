@@ -1,24 +1,21 @@
-import 'package:flutter/material.dart';
+part of '../page.dart';
 
-import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
-import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
-
-class PlatformsBox extends StatelessWidget {
-  const PlatformsBox({Key? key}) : super(key: key);
+class _PlatformsBox extends StatelessWidget {
+  const _PlatformsBox();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 268,
-      height: 413,
+      height: 430,
       padding: const EdgeInsets.fromLTRB(32, 22, 32, 32),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
       ),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
+        children: <Widget>[
           Text(
             'Platforms',
             style: TextStyles.myriadProSemiBold22DarkBlue,
@@ -34,15 +31,15 @@ class PlatformsBox extends StatelessWidget {
 }
 
 class _Circles extends StatelessWidget {
-  const _Circles({Key? key}) : super(key: key);
+  const _Circles();
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: 170,
       height: 150,
       child: Stack(
-        children: const <Widget>[
+        children: <Widget>[
           Positioned(
             bottom: 25,
             child: CircleAvatar(
@@ -84,12 +81,12 @@ class _Circles extends StatelessWidget {
 }
 
 class _PlatformsList extends StatelessWidget {
-  const _PlatformsList({Key? key}) : super(key: key);
+  const _PlatformsList();
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const <Widget>[
+    return const Column(
+      children: <Widget>[
         _PlatformListElement(
           platformName: 'Android',
           percent: 60,
@@ -121,8 +118,7 @@ class _PlatformListElement extends StatelessWidget {
     required this.percent,
     required this.backgroundColor,
     required this.foregroundColor,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String platformName;
 

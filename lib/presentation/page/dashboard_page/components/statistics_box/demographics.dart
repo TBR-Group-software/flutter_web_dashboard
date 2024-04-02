@@ -1,21 +1,15 @@
-import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+part of '../../page.dart';
 
-import 'package:flutter_web_dashboard/dummy_data/charts_data.dart';
-import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
-import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
-
-class DemographicsPage extends StatelessWidget {
-  const DemographicsPage({Key? key}) : super(key: key);
+class _DemographicsPage extends StatelessWidget {
+  const _DemographicsPage();
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 31, bottom: 40),
+    return const Padding(
+      padding: EdgeInsets.only(top: 31, bottom: 40),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
+        children: <Widget>[
           _CircleChart(femalePercent: 43.9, malePercent: 56.1),
           VerticalDivider(color: Palette.lightGrey),
           _BarChart(),
@@ -29,8 +23,7 @@ class _CircleChart extends StatelessWidget {
   const _CircleChart({
     required this.malePercent,
     required this.femalePercent,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final double malePercent;
   final double femalePercent;
@@ -119,8 +112,7 @@ class _CircleChartBottomInfo extends StatelessWidget {
     required this.growthPercent,
     required this.totalPercent,
     this.haveIncreased = true,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String text;
 
@@ -150,7 +142,7 @@ class _CircleChartBottomInfo extends StatelessWidget {
           children: <Widget>[
             const SizedBox(width: 20),
             Text(
-              totalPercent.toString() + '%',
+              '$totalPercent%',
               style: TextStyles.myriadProSemiBold16DarkBlue,
             ),
             Icon(
@@ -159,7 +151,7 @@ class _CircleChartBottomInfo extends StatelessWidget {
               color: haveIncreased ? Palette.green : Palette.red,
             ),
             Text(
-              growthPercent.toString() + '%',
+              '$growthPercent%',
               style: haveIncreased
                   ? TextStyles.myriadProSemiBold12Green
                   : TextStyles.myriadProSemiBold12Red,
@@ -172,7 +164,7 @@ class _CircleChartBottomInfo extends StatelessWidget {
 }
 
 class _BarChart extends StatelessWidget {
-  const _BarChart({Key? key}) : super(key: key);
+  const _BarChart();
 
   BarSeries<UsersAgeData, String> _createBarSeries(
     List<UsersAgeData> dataSource,
@@ -199,7 +191,7 @@ class _BarChart extends StatelessWidget {
       child: SfCartesianChart(
         margin: EdgeInsets.zero,
         plotAreaBorderWidth: 0,
-        title: ChartTitle(
+        title: const ChartTitle(
           text: 'Age',
           textStyle: TextStyles.myriadProSemiBold14DarkBlue,
           alignment: ChartAlignment.near,
@@ -242,7 +234,7 @@ class _BarChart extends StatelessWidget {
           Palette.orange,
           Palette.lightBlue,
         ],
-        series: <ChartSeries>[
+        series: <CartesianSeries>[
           _createBarSeries(femaleData),
           _createBarSeries(maleData),
         ],

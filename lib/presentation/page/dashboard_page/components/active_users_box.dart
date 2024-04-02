@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:flutter_web_dashboard/dummy_data/charts_data.dart';
-import 'package:flutter_web_dashboard/presentation/theme/palette.dart';
-import 'package:flutter_web_dashboard/presentation/theme/text_styles.dart';
-import 'package:flutter_web_dashboard/presentation/widget/name_and_color_row.dart';
+import '../../../../dummy_data/charts_data.dart';
+import '../../../theme/palette.dart';
+import '../../../theme/text_styles.dart';
+import '../../../widget/name_and_color_row.dart';
 
 class ActiveUsersBox extends StatelessWidget {
-  const ActiveUsersBox({Key? key}) : super(key: key);
+  const ActiveUsersBox({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,22 +19,22 @@ class ActiveUsersBox extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
       ),
-      child: Row(
+      child: const Row(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left: 32.0, top: 32.0, right: 45),
+            padding: EdgeInsets.only(left: 32.0, top: 32.0, right: 45),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Text(
+                Text(
                   'Active Users',
                   style: TextStyles.myriadProSemiBold22DarkBlue,
                 ),
-                const SizedBox(height: 24),
-                const _BarChart(),
-                const SizedBox(height: 20),
+                SizedBox(height: 24),
+                _BarChart(),
+                SizedBox(height: 20),
                 Row(
-                  children: const <Widget>[
+                  children: <Widget>[
                     NameAndColorRow(color: Palette.lightBlue, text: 'Users'),
                     SizedBox(width: 36),
                     NameAndColorRow(
@@ -44,7 +44,7 @@ class ActiveUsersBox extends StatelessWidget {
               ],
             ),
           ),
-          const _DetailsColumn(
+          _DetailsColumn(
             daily: 23,
             monthly: 233,
             annual: 232323,
@@ -56,7 +56,7 @@ class ActiveUsersBox extends StatelessWidget {
 }
 
 class _BarChart extends StatelessWidget {
-  const _BarChart({Key? key}) : super(key: key);
+  const _BarChart();
 
   @override
   Widget build(BuildContext context) {
@@ -69,18 +69,30 @@ class _BarChart extends StatelessWidget {
           barTouchData: BarTouchData(enabled: false),
           titlesData: FlTitlesData(
             show: true,
-            bottomTitles: SideTitles(showTitles: false),
-            topTitles: SideTitles(showTitles: false),
-            rightTitles: SideTitles(showTitles: false),
-            leftTitles: SideTitles(
-              showTitles: true,
-              getTextStyles: (_, __) => TextStyles.myriadProRegular13DarkBlue60,
+            bottomTitles: const AxisTitles(),
+            topTitles: const AxisTitles(),
+            rightTitles: const AxisTitles(),
+            leftTitles: AxisTitles(
+              sideTitles: SideTitles(
+                reservedSize: 30,
+                showTitles: true,
+                getTitlesWidget: (value, __) => SideTitleWidget(
+                  axisSide: AxisSide.left,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      '$value',
+                      style: TextStyles.myriadProRegular13DarkBlue60,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
           gridData: FlGridData(
             show: true,
             drawVerticalLine: false,
-            getDrawingHorizontalLine: (_) => FlLine(
+            getDrawingHorizontalLine: (_) => const FlLine(
               color: Palette.mediumGrey40,
               strokeWidth: 1,
             ),
@@ -102,24 +114,22 @@ class _BarChart extends StatelessWidget {
       x: 0,
       barsSpace: 20,
       barRods: [
-        ...activeUsersData.entries
-            .map(
-              (MapEntry<int, List<double>> e) => BarChartRodData(
-                y: e.value.first,
-                width: 13,
-                colors: [Palette.lightBlue],
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(8),
-                  topRight: Radius.circular(8),
-                ),
-                backDrawRodData: BackgroundBarChartRodData(
-                  show: true,
-                  y: e.value.last,
-                  colors: [Palette.mediumBlue],
-                ),
-              ),
-            )
-            .toList(),
+        ...activeUsersData.entries.map(
+          (MapEntry<int, List<double>> e) => BarChartRodData(
+            toY: e.value.first,
+            width: 13,
+            color: Palette.lightBlue,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(8),
+              topRight: Radius.circular(8),
+            ),
+            backDrawRodData: BackgroundBarChartRodData(
+              show: true,
+              toY: e.value.last,
+              color: Palette.mediumBlue,
+            ),
+          ),
+        ),
       ],
     ),
   ];
@@ -130,8 +140,7 @@ class _DetailsColumn extends StatelessWidget {
     required this.annual,
     required this.monthly,
     required this.daily,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final int annual;
 
@@ -149,10 +158,10 @@ class _DetailsColumn extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       padding: const EdgeInsets.symmetric(vertical: 15),
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min,
-        children: const <Widget>[
+        children: <Widget>[
           _NumberAndTitle(
             title: 'Annual',
             number: 232323,
@@ -160,7 +169,7 @@ class _DetailsColumn extends StatelessWidget {
           ),
           Divider(color: Palette.mediumBlue),
           _NumberAndTitle(
-            title: 'Mounthly',
+            title: 'Monthly',
             number: 233,
             numberTextStyle: TextStyles.myriadProSemiBold18Orange,
           ),
@@ -181,8 +190,7 @@ class _NumberAndTitle extends StatelessWidget {
     required this.title,
     required this.number,
     required this.numberTextStyle,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String title;
 

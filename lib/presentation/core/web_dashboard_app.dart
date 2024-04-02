@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_dashboard/presentation/routes/app_router.dart';
 
-class WebDashboardApp extends StatelessWidget {
+import '../routes/app_router.dart';
+
+class WebDashboardApp extends StatefulWidget {
+  const WebDashboardApp({super.key});
+
+  @override
+  State<WebDashboardApp> createState() => _WebDashboardAppState();
+}
+
+class _WebDashboardAppState extends State<WebDashboardApp> {
   final _appRouter = AppRouter();
-
-  WebDashboardApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
